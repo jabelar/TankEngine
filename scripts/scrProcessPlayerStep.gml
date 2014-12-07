@@ -51,7 +51,7 @@ switch state
         }
         marker_id = instance_create(xstart, ystart, objRespawnMarker)
         marker_id.respawn_index = object_index
-        sound_play(sndExplosion)
+        audio_play_sound(sndExplosion, 1, false)
         instance_destroy()
         break ;
     }   

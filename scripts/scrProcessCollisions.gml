@@ -3,7 +3,7 @@ if item_id > 0 // hit item
 {
     my_health += 20
     if my_health > 100 then my_health = 100
-    sound_play(sndItem)
+    audio_play_sound(sndItem, 1, false)
     with (item_id)
     {
         instance_destroy()
@@ -25,7 +25,7 @@ item_id = instance_place(x, y, objItemAmmo)
 if item_id > 0 // hit item
 {
     global.ammo_main_gun[current_player] += 10
-    sound_play(sndItem)
+    audio_play_sound(sndItem, 1, false)
     with (item_id)
     {
         instance_destroy()
@@ -82,7 +82,7 @@ switch global.game_type
         //        }
         //        case FLAG_ABANDONED:
         //        {
-        //            sound_play(sndFlag)
+        //            audio_play(sndFlag, 1, false)
         //            flag_id.state = FLAG_RETURNING
         //            have_own_flag = true
         //            flag_id.carrier = id
@@ -105,7 +105,7 @@ switch global.game_type
                 case FLAG_HOME:
                 {
                     // pick it up
-                    sound_play(sndFlag)
+                    audio_play_sound(sndFlag, 1, false)
                     flag_id.state = FLAG_CAPTURED
                     have_enemy_flag = true
                     flag_id.carrier = id
@@ -119,7 +119,7 @@ switch global.game_type
                 case FLAG_ABANDONED:
                 {
                     // pick it up
-                    sound_play(sndFlag)
+                    audio_play_sound(sndFlag, 1, false)
                     flag_id.state = FLAG_CAPTURED
                     have_enemy_flag = true
                     flag_id.carrier = id
@@ -161,7 +161,7 @@ switch global.game_type
                         if state = FLAG_CAPTURED
                         {
                             global.player_score[other.current_player] += 1
-                            sound_play(sndFanfare)
+                            audio_play_sound(sndFanfare, 1, false)
                             state = FLAG_HOME
                             carrier = noone
                             other.have_enemy_flag = false
