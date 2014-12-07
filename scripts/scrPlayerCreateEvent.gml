@@ -11,6 +11,8 @@ input_fire3 = vk_space
 input_change_spawn = ord('S')
 input_flag = ord('F')
 
+gamepad_set_axis_deadzone(1, 0.2);
+
 my_speed = 4
 my_turn_speed = 5
 global.ammo_main_gun[current_player] = 50
