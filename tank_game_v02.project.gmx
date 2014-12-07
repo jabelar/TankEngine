@@ -71,6 +71,8 @@
     <sprites name="Flags">
       <sprite>sprites\sprFlagRed</sprite>
       <sprite>sprites\sprFlagBlue</sprite>
+      <sprite>sprites\sprFlagAnimRed</sprite>
+      <sprite>sprites\sprFlagAnimBlue</sprite>
     </sprites>
     <sprites name="Hazards">
       <sprite>sprites\sprLandMine</sprite>
