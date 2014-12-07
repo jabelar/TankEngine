@@ -76,9 +76,13 @@
     </sprites>
     <sprites name="Hazards">
       <sprite>sprites\sprLandMine</sprite>
+      <sprite>sprites\sprLandMineAnim</sprite>
+      <sprite>sprites\sprLandMineAnimSmall</sprite>
     </sprites>
     <sprites name="Home Base">
       <sprite>sprites\sprHomeBaseRed</sprite>
+      <sprite>sprites\sprHomeBaseAnimRed</sprite>
+      <sprite>sprites\sprHomeBaseAnimBlue</sprite>
       <sprite>sprites\sprHomeBaseBlue</sprite>
       <sprite>sprites\sprite16</sprite>
     </sprites>
