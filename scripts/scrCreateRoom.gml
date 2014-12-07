@@ -1,18 +1,14 @@
 var scaling_factor ;
 scaling_factor = room_width * room_height / (4000 * 3000)
-repeat 100*scaling_factor
-{
-    map_object_id = instance_create(random(room_width), random(room_height), objObstacleWall1)
-    with map_object_id
-    {
-        scrFindFreeSpace() ;
-    }
-}
+
+// randomize seed
+randomize()
+
 // populate deep water
 // seed deep water
 repeat 30*scaling_factor
 {
-    map_object_id = instance_create(random(room_width), random(room_height), objWaterDeep) ;
+    map_object_id = instance_create((random(room_width) div 32)*32, (random(room_height) div 32)*32, objWaterDeep) ;
     with map_object_id
     {
         scrFindFreeSpace() ;
@@ -52,6 +48,10 @@ with objWaterDeep
     if place_empty(x+32, y) then instance_create(x+32, y, objWaterShallow) ;
     if place_empty(x, y-32) then instance_create(x, y-32, objWaterShallow) ;
     if place_empty(x, y+32) then instance_create(x, y+32, objWaterShallow) ;
+    if place_empty(x-32, y-32) then instance_create(x-32, y-32, objWaterShallow) ;
+    if place_empty(x+32, y-32) then instance_create(x+32, y-32, objWaterShallow) ;
+    if place_empty(x-32, y+32) then instance_create(x-32, y+32, objWaterShallow) ;
+    if place_empty(x+32, y+32) then instance_create(x+32, y+32, objWaterShallow) ;
 }
 // add sand around shallow water
 with objWaterShallow
@@ -60,24 +60,32 @@ with objWaterShallow
     if place_empty(x+32, y) then instance_create(x+32, y, objSand) ;
     if place_empty(x, y-32) then instance_create(x, y-32, objSand) ;
     if place_empty(x, y+32) then instance_create(x, y+32, objSand) ;
+    if place_empty(x-32, y-32) then instance_create(x-32, y-32, objSand) ;
+    if place_empty(x+32, y-32) then instance_create(x+32, y-32, objSand) ;
+    if place_empty(x-32, y+32) then instance_create(x-32, y+32, objSand) ;
+    if place_empty(x+32, y+32) then instance_create(x+32, y+32, objSand) ;
 }
 // fill in deep water inside corners
 with objWaterDeep
 {
     if (instance_place(x+32, y+32, objWaterDeep) > 0) and (instance_place(x+32, y, objWaterDeep) = noone) then
     {
+        instance_create(x+32, y, objWaterShallow) ;
         instance_create(x+32, y, objWaterDeepTR) ;
     }
     if (instance_place(x-32, y+32, objWaterDeep) > 0) and (instance_place(x-32, y, objWaterDeep) = noone) then
     {
+        instance_create(x-32, y, objWaterShallow) ;
         instance_create(x-32, y, objWaterDeepTL) ;
     }
     if (instance_place(x+32, y-32, objWaterDeep) > 0) and (instance_place(x+32, y, objWaterDeep) = noone) then
     {
+        instance_create(x+32, y, objWaterShallow) ;
         instance_create(x+32, y, objWaterDeepBR) ;
     }
     if (instance_place(x-32, y-32, objWaterDeep) > 0) and (instance_place(x-32, y, objWaterDeep) = noone) then
     {
+        instance_create(x-32, y, objWaterShallow) ;
         instance_create(x-32, y, objWaterDeepBL) ;
     }
 }
@@ -160,6 +168,19 @@ repeat 6
         }
     }
 }
+
+// populate walls
+repeat 100*scaling_factor
+{
+    map_object_id = instance_create(random(room_width), random(room_height), objObstacleWall1)
+    with map_object_id
+    {
+        scrFindFreeSpace() ;
+    }
+}
+
+// populate items
+
 repeat 50*scaling_factor
 {
     map_object_id = instance_create(random(room_width), random(room_height), objItemHealth)
