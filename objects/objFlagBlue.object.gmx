@@ -89,7 +89,7 @@ carrier = noone
           <argument>
             <kind>1</kind>
             <string>draw_sprite(sprite_index, image_index, x, y)
-draw_text(x, y-30, string(state))
+// draw_text(x, y-30, string(state))
 </string>
           </argument>
         </arguments>

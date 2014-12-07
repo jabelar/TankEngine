@@ -130,6 +130,7 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontMilitary</font>
+    <font>fonts\fontMilitaryStencil</font>
   </fonts>
   <objects name="objects">
     <objects name="Parents">

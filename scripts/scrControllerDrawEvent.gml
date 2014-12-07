@@ -1,5 +1,5 @@
-draw_set_font(fontMilitary)
-draw_set_color(c_olive)
+draw_set_font(fontMilitaryStencil)
+draw_set_color(c_yellow)
 switch room
 {
     case roomStarting:
