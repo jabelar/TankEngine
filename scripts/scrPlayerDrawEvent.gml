@@ -1,7 +1,13 @@
 draw_healthbar(x-32, y-16-30, x-32+64, y-16-25, my_health, c_black, c_red, c_green, 0, true, true)
 draw_sprite_ext(body_sprite, image_index, x, y, 1, 1, image_angle, c_white, 1)
 // draw weapons
-if has_main_gun then draw_sprite_ext(sprTankMainGun, 0, x, y, 1, 1, image_angle, c_white, 1)var direction_to_home ;
+if has_main_gun then
+{
+    if current_player = PLAYER1 then draw_sprite_ext(sprWeaponHuskyRed, 0, x, y, 1, 1, image_angle, c_white, 1)
+    else draw_sprite_ext(sprWeaponHuskyBlue, 0, x, y, 1, 1, image_angle, c_white, 1)
+}
+
+var direction_to_home ;
 // draw indicators
 if view_current = current_player // only draw in players view
 {

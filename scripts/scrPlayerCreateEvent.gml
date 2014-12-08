@@ -1,4 +1,5 @@
-body_sprite = sprTankBody1
+if current_player = PLAYER1 then body_sprite = sprHuskyRed
+else body_sprite = sprHuskyBlue
 has_main_gun = true
 
 input_forward = vk_up

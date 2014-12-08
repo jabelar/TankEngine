@@ -14,9 +14,13 @@
   <sprites name="sprites">
     <sprites name="Tank Bodies">
       <sprite>sprites\sprTankBody1</sprite>
+      <sprite>sprites\sprHuskyRed</sprite>
+      <sprite>sprites\sprHuskyBlue</sprite>
     </sprites>
     <sprites name="Tank Weapons">
       <sprite>sprites\sprTankMainGun</sprite>
+      <sprite>sprites\sprWeaponHuskyBlue</sprite>
+      <sprite>sprites\sprWeaponHuskyRed</sprite>
     </sprites>
     <sprites name="Projectiles">
       <sprite>sprites\sprProjectileShell</sprite>
@@ -62,6 +66,7 @@
     </sprites>
     <sprites name="Terrain">
       <sprite>sprites\sprTracks</sprite>
+      <sprite>sprites\sprTracksNarrow</sprite>
       <sprite>sprites\sprMud</sprite>
       <sprite>sprites\sprWaterShallow</sprite>
       <sprite>sprites\sprRoadPaved</sprite>
