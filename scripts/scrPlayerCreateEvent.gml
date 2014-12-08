@@ -15,7 +15,7 @@ gamepad_set_axis_deadzone(1, 0.2);
 
 my_speed = 4
 my_turn_speed = 5
-global.ammo_main_gun[current_player] = 50
+global.ammo_main_gun[current_player] = 10
 my_score = 0
 my_health = 100
 state = NORMAL

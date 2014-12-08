@@ -2,11 +2,12 @@ switch room
 {
     case roomStarting:
     {
-        break ;
+        alarm[0]=room_speed*10 ;
+        break;
     }
     case roomMain:
     {
         scrCreateRoom()
-    break ;
+        break ;
     }
 }

@@ -3,7 +3,10 @@ switch room
 {
     case roomStarting:
     {
-        room_goto(roomMain)
+        if alarm[0]<0
+        {
+            room_goto(roomMain)
+        }
         break ;
     }
     case roomMain:

@@ -135,7 +135,7 @@ with objWaterDeep
 // seed mud
 repeat 30*scaling_factor
 {
-    map_object_id = instance_create(random(room_width), random(room_height), objMud)
+    map_object_id = instance_create((random(room_width) div 32)*32, (random(room_height) div 32)*32, objMud)
     with map_object_id
     {
         scrFindFreeSpace() ;
@@ -172,7 +172,7 @@ repeat 6
 // populate walls
 repeat 100*scaling_factor
 {
-    map_object_id = instance_create(random(room_width), random(room_height), objObstacleWall1)
+    map_object_id = instance_create((random(room_width) div 32)*32, (random(room_height) div 32)*32, objObstacleWall1)
     with map_object_id
     {
         scrFindFreeSpace() ;
@@ -183,7 +183,7 @@ repeat 100*scaling_factor
 
 repeat 50*scaling_factor
 {
-    map_object_id = instance_create(random(room_width), random(room_height), objItemHealth)
+    map_object_id = instance_create((random(room_width) div 32)*32, (random(room_height) div 32)*32, objItemHealth)
     with map_object_id
     {
         scrFindFreeSpace() ;
@@ -192,7 +192,7 @@ repeat 50*scaling_factor
 
 repeat 50*scaling_factor
 {
-    map_object_id = instance_create(random(room_width), random(room_height), objItemAmmo)
+    map_object_id = instance_create((random(room_width) div 32)*32, (random(room_height) div 32)*32, objItemAmmo)
     with map_object_id
     {
         scrFindFreeSpace() ;
@@ -200,7 +200,7 @@ repeat 50*scaling_factor
 }
 repeat 50*scaling_factor
 {
-    map_object_id = instance_create(random(room_width), random(room_height), objLandMine)
+    map_object_id = instance_create((random(room_width) div 32)*32, (random(room_height) div 32)*32, objLandMine)
     with map_object_id
     {
         scrFindFreeSpace() ;
