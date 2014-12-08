@@ -1,5 +1,7 @@
 var scaling_factor ;
-scaling_factor = room_width * room_height / (4000 * 3000)
+scaling_factor = room_width * room_height / (12000 * 12000)
+show_debug_message("room_width = "+string(room_width))
+show_debug_message("room_height = "+string(room_height))
 
 // randomize seed
 randomize()

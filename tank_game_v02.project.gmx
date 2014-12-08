@@ -101,6 +101,7 @@
   <backgrounds name="background">
     <background>background\bgGrass</background>
     <background>background\bgTitle</background>
+    <background>background\bgGrassHD1</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
