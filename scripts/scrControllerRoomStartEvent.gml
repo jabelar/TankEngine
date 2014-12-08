@@ -2,7 +2,7 @@ switch room
 {
     case roomStarting:
     {
-        alarm[0]=room_speed*10 ;
+        alarm[0]=room_speed*3 
         break;
     }
     case roomMain:
