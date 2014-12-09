@@ -91,11 +91,11 @@ if player_type = HUMAN
         }
     
         // turret independently controlled
-        if gamepad_axis_value(1, gp_axisrh) > 0
+        if gamepad_axis_value(1, gp_axisrh) < 0
         {
             angle_main_gun += TANK_TURN_SPEED_BASE*TANK_TURRET_SPEED_MULTIPLIER
         }
-        if gamepad_axis_value(1, gp_axisrh) < 0
+        if gamepad_axis_value(1, gp_axisrh) > 0
         {
             angle_main_gun -= TANK_TURN_SPEED_BASE*TANK_TURRET_SPEED_MULTIPLIER
         }
