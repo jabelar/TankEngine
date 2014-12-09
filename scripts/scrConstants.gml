@@ -54,5 +54,5 @@ HOME = 5
 TANK_SPEED_BASE = 8
 TANK_TURN_SPEED_BASE = 5
 TANK_TURRET_SPEED_MULTIPLIER = 2
-BULLET_SPEED_BASE = 32
-BULLET_RANGE_BASE = 0.75 // this is time (multiplier for room_speed
+BULLET_SPEED_BASE = 64
+BULLET_RANGE_BASE = 0.40 // this is time (multiplier for room_speed
