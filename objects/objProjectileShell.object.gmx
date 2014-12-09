@@ -27,8 +27,8 @@
             <kind>1</kind>
             <string>scrConstants()
 
-alarm[0] = 0.75 * room_speed // this alarm sets the range of the projectile
-speed = 16
+alarm[0] = BULLET_RANGE_BASE // this alarm sets the range of the projectile
+speed = BULLET_SPEED_BASE
 state = NORMAL
 my_damage = 10
 </string>
@@ -169,5 +169,8 @@ state = DYING
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints/>
+  <PhysicsShapePoints>
+    <point>64,64</point>
+    <point>64,64</point>
+  </PhysicsShapePoints>
 </object>

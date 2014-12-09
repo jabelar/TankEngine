@@ -14,8 +14,8 @@ input_flag = ord('F')
 
 gamepad_set_axis_deadzone(1, 0.2);
 
-my_speed = 4
-my_turn_speed = 5
+my_speed = TANK_SPEED_BASE
+my_turn_speed = TANK_TURN_SPEED_BASE
 global.ammo_main_gun[current_player] = 10
 my_score = 0
 my_health = 100
@@ -23,7 +23,7 @@ state = NORMAL
 
 // offsets to ensure weapons launch from correct part
 offset_angle_main_gun = 0
-offset_distance_main_gun = 32
+offset_distance_main_gun = 64
 
 // initialize joystick button press variables
 button_previous_pressed[5] = false
