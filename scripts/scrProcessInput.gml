@@ -36,7 +36,7 @@ if player_type = HUMAN
             key_left = false
         }
     }
-    else // input_style = JOYSTICK
+    else if input_style = JOYSTICK
     {
         // if joystick_direction(current_player) = vk_numpad8
         if gamepad_axis_value(1, gp_axislv) < 0
@@ -50,6 +50,37 @@ if player_type = HUMAN
         }
         // if joystick_direction(current_player) = vk_numpad6
         if gamepad_axis_value(1, gp_axisrh) > 0
+        {
+            key_right = true ;
+        }
+        // if joystick_direction(current_player) = vk_numpad2
+        if gamepad_axis_value(1, gp_axislv) > 0
+        {
+            key_backward = true ;
+        }
+    
+        // key_weapon1_pressed = scrJoystickCheckButtonPressed(current_player, 5) 
+        
+        // TODO
+        // need to process current player stuff mapped to controller
+        key_weapon1_pressed = gamepad_button_check_pressed(1, gp_shoulderr) or gamepad_button_check_pressed(1, gp_shoulderrb);
+        key_weapon2_pressed = gamepad_button_check_pressed(1, gp_shoulderl) or gamepad_button_check_pressed(1, gp_shoulderlb); 
+        key_weapon3_pressed = gamepad_button_check_pressed(1, gp_face3);
+    }
+    else if input_style = JOYSTICK_SEP
+    {
+        // if joystick_direction(current_player) = vk_numpad8
+        if gamepad_axis_value(1, gp_axislv) < 0
+        {
+            key_forward = true ;
+        }
+        // if joystick_direction(current_player) = vk_numpad4
+        if gamepad_axis_value(1, gp_axislh) < 0
+        {
+            key_left = true ;
+        }
+        // if joystick_direction(current_player) = vk_numpad6
+        if gamepad_axis_value(1, gp_axislh) > 0
         {
             key_right = true ;
         }

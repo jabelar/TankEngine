@@ -52,11 +52,11 @@
   </views>
   <instances>
     <instance objName="objHomeBaseTeam1" x="96" y="128" name="inst_3BCFF377" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objHomeBaseTeam2" x="2816" y="2816" name="inst_CA798136" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objFlagRed" x="224" y="256" name="inst_C37F689E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objPlayer1" x="192" y="224" name="inst_4867989F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objPlayer2" x="2752" y="2752" name="inst_B73B8B09" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objFlagRed" x="128" y="160" name="inst_C37F689E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objFlagBlue" x="2848" y="2848" name="inst_64B45E59" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHomeBaseTeam2" x="10784" y="11008" name="inst_E72203BF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objFlagBlue" x="10912" y="11136" name="inst_6A2EDBDE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

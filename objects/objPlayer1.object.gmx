@@ -29,7 +29,7 @@
 
 current_player = PLAYER1 // this is Player 1's object
 my_team = TEAM1
-input_style = JOYSTICK
+input_style = JOYSTICK_SEP
 player_type = HUMAN
 ai_target = ENEMY
 
