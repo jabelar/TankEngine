@@ -51,8 +51,8 @@ AMMO = 3
 HEALTH = 4
 HOME = 5
 // base speeds
-TANK_SPEED_BASE = 8
-TANK_TURN_SPEED_BASE = 5
+TANK_SPEED_BASE = 4
+TANK_TURN_SPEED_BASE = 2
 TANK_TURRET_SPEED_MULTIPLIER = 2
-BULLET_SPEED_BASE = 64
-BULLET_RANGE_BASE = 0.40 // this is time (multiplier for room_speed
+BULLET_SPEED_BASE = 32
+BULLET_RANGE_BASE = 0.20 // this is time (multiplier for room_speed

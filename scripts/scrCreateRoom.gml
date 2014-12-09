@@ -9,10 +9,10 @@ randomize()
 // spawn players
 home_base_id_1 = instance_create(TILE_SIZE*3, TILE_SIZE*3, objHomeBaseTeam1)
 home_base_id_2 = instance_create(room_width-TILE_SIZE*3, room_height-TILE_SIZE*3, objHomeBaseTeam2)
-instance_create(home_base_id_1.x, home_base_id_1.y, objFlagRed)
-instance_create(home_base_id_1.x, home_base_id_1.y, objPlayer1)
-instance_create(home_base_id_2.x, home_base_id_2.y, objFlagBlue)
-instance_create(home_base_id_2.x, home_base_id_2.y, objPlayer2)
+instance_create(home_base_id_1.x+home_base_id_1.sprite_width/2, home_base_id_1.y+home_base_id_1.sprite_width/2, objFlagRed)
+instance_create(home_base_id_1.x+home_base_id_1.sprite_width/2, home_base_id_1.y+home_base_id_1.sprite_width/2, objPlayer1)
+instance_create(home_base_id_2.x+home_base_id_2.sprite_width/2, home_base_id_2.y+home_base_id_2.sprite_width/2, objFlagBlue)
+instance_create(home_base_id_2.x+home_base_id_2.sprite_width/2, home_base_id_2.y+home_base_id_2.sprite_width/2, objPlayer2)
 
 // populate deep water
 // seed deep water

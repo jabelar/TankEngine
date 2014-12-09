@@ -28,7 +28,7 @@
             <string>state = FLAG_HOME
 my_team = TEAM2
 carrier = noone
-
+image_speed = 0.5
 </string>
           </argument>
         </arguments>
