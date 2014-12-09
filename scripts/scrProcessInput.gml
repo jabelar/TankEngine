@@ -106,6 +106,49 @@ if player_type = HUMAN
         key_weapon2_pressed = gamepad_button_check_pressed(1, gp_shoulderl) or gamepad_button_check_pressed(1, gp_shoulderlb); 
         key_weapon3_pressed = gamepad_button_check_pressed(1, gp_face3);
     }
+    else if input_style = JOYSTICK_SEP_DIR
+    {
+        joy_direction = point_direction(0, 0, gamepad_axis_value(1, gp_axislh), gamepad_axis_value(1, gp_axislv));
+        joy_distance = point_distance(0, 0, gamepad_axis_value(1, gp_axislh), gamepad_axis_value(1, gp_axislv));
+        ang_diff = angle_difference(joy_direction, image_angle)
+        
+        if joy_distance > 0
+        {
+            if abs(ang_diff) < TANK_TURN_SPEED_BASE
+            {
+                key_forward = true ;
+            }
+            else if (180 - abs(ang_diff)) > (180 - TANK_TURN_SPEED_BASE)
+            {
+                key_backward = true ;
+            }
+            else if ang_diff < 0
+            {
+                key_right = true ;
+            }
+            else if ang_diff > 0
+            {
+                key_left = true ;
+            }
+        }
+         
+        // turret independently controlled
+        if gamepad_axis_value(1, gp_axisrh) < 0
+        {
+            angle_main_gun += TANK_TURN_SPEED_BASE*TANK_TURRET_SPEED_MULTIPLIER
+        }
+        if gamepad_axis_value(1, gp_axisrh) > 0
+        {
+            angle_main_gun -= TANK_TURN_SPEED_BASE*TANK_TURRET_SPEED_MULTIPLIER
+        }
+        
+        // TODO
+        // need to process current player stuff mapped to controller
+        key_weapon1_pressed = gamepad_button_check_pressed(1, gp_shoulderr) or gamepad_button_check_pressed(1, gp_shoulderrb);
+        key_weapon2_pressed = gamepad_button_check_pressed(1, gp_shoulderl) or gamepad_button_check_pressed(1, gp_shoulderlb); 
+        key_weapon3_pressed = gamepad_button_check_pressed(1, gp_face3);
+    }
+
 }
 else // computer player so process AI
 {

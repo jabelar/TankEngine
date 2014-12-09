@@ -1,10 +1,11 @@
 // intended to be called in the Create event of every object
 // input types
-globalvar KEYBOARD, JOYSTICK ;
+globalvar KEYBOARD, JOYSTICK, JOYSTICK_SEP, JOYSTICK_SEP_DIR, TOUCH ;
 KEYBOARD = 0
 JOYSTICK = 1 // tank and turret fixed in same direction
 JOYSTICK_SEP = 2 // tank and turret move independently
-TOUCH = 3
+JOYSTICK_SEP_DIR = 3 // tank and turret move independently, tank moves direction pointed
+TOUCH = 4
 // states
 globalvar HUMAN, COMPUTER ;
 HUMAN = 0
@@ -29,7 +30,7 @@ TEAM2 = 1
 TEAM3 = 2
 TEAM4 = 3
 // room settings
-globalvar TILE_SIZE ;
+globalvar TILE_SIZE, OBJ_DENSITY ;
 TILE_SIZE = 128
 OBJ_DENSITY = 30 // per room
 // delays
@@ -43,7 +44,7 @@ FLAG_CAPTURED = 1
 FLAG_ABANDONED = 2
 FLAG_RETURNING = 3
 // things the AI might target
-globalvar ENEMY, ENEMY_FLAG, OWN_FLAG, AMMO, HEALTH ;
+globalvar ENEMY, ENEMY_FLAG, OWN_FLAG, AMMO, HEALTH, HOME;
 ENEMY = 0
 ENEMY_FLAG = 1
 OWN_FLAG = 2
@@ -51,6 +52,8 @@ AMMO = 3
 HEALTH = 4
 HOME = 5
 // base speeds
+globalvar TANK_SPEED_BASE, TANK_TURN_SPEED_BASE, TANK_TURRET_SPEED_MULTIPLIER ;
+globalvar BULLET_SPEED_BASE, BULLET_BASE_RANGE ;
 TANK_SPEED_BASE = 4
 TANK_TURN_SPEED_BASE = 2
 TANK_TURRET_SPEED_MULTIPLIER = 2

@@ -25,11 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scrConstants()
-
-current_player = PLAYER1 // this is Player 1's object
+            <string>current_player = PLAYER1 // this is Player 1's object
 my_team = TEAM1
-input_style = JOYSTICK_SEP
+input_style = JOYSTICK_SEP_DIR
 player_type = HUMAN
 ai_target = ENEMY
 
