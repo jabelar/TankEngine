@@ -3,8 +3,8 @@ draw_sprite_ext(body_sprite, image_index, x, y, 1, 1, image_angle, c_white, 1)
 // draw weapons
 if has_main_gun then
 {
-    if current_player = PLAYER1 then draw_sprite_ext(sprWeaponHuskyRed, 0, x, y, 1, 1, image_angle, c_white, 1)
-    else draw_sprite_ext(sprWeaponHuskyBlue, 0, x, y, 1, 1, image_angle, c_white, 1)
+    if current_player = PLAYER1 then draw_sprite_ext(sprWeaponHuskyRed, 0, x, y, 1, 1, image_angle+angle_main_gun, c_white, 1)
+    else draw_sprite_ext(sprWeaponHuskyBlue, 0, x, y, 1, 1, image_angle+angle_main_gun, c_white, 1)
 }
 
 var direction_to_home ;

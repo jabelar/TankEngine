@@ -22,7 +22,7 @@ my_health = 100
 state = NORMAL
 
 // offsets to ensure weapons launch from correct part
-offset_angle_main_gun = 0
+angle_main_gun = 0
 offset_distance_main_gun = 64
 
 // initialize joystick button press variables

@@ -90,7 +90,15 @@ if player_type = HUMAN
             key_backward = true ;
         }
     
-        // key_weapon1_pressed = scrJoystickCheckButtonPressed(current_player, 5) 
+        // turret independently controlled
+        if gamepad_axis_value(1, gp_axisrh) > 0
+        {
+            angle_main_gun += TANK_TURN_SPEED_BASE*TANK_TURRET_SPEED_MULTIPLIER
+        }
+        if gamepad_axis_value(1, gp_axisrh) < 0
+        {
+            angle_main_gun -= TANK_TURN_SPEED_BASE*TANK_TURRET_SPEED_MULTIPLIER
+        }
         
         // TODO
         // need to process current player stuff mapped to controller
