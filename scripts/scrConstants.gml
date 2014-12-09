@@ -2,7 +2,9 @@
 // input types
 globalvar KEYBOARD, JOYSTICK ;
 KEYBOARD = 0
-JOYSTICK = 1
+JOYSTICK = 1 // tank and turret fixed in same direction
+JOYSTICKSEP = 2 // tank and turret move independently
+TOUCH = 3
 // states
 globalvar HUMAN, COMPUTER ;
 HUMAN = 0
@@ -20,12 +22,16 @@ global.game_type = CAPTURE_THE_FLAG
 globalvar PLAYER1, PLAYER2 ;
 PLAYER1 = 0
 PLAYER2 = 1
-// TEAMS
+// teams
 globalvar TEAM1, TEAM2, TEAM3, TEAM4 ;
 TEAM1 = 0
 TEAM2 = 1
 TEAM3 = 2
 TEAM4 = 3
+// room settings
+globalvar TILE_SIZE ;
+TILE_SIZE = 128
+OBJ_DENSITY = 30 // per room
 // delays
 globalvar RESPAWN_DELAY, MAIN_GUN_DELAY ;
 RESPAWN_DELAY = 1 * room_speed // one second

@@ -10,7 +10,7 @@ randomize()
 // seed deep water
 repeat 30*scaling_factor
 {
-    map_object_id = instance_create((random(room_width) div 32)*32, (random(room_height) div 32)*32, objWaterDeep) ;
+    map_object_id = instance_create((random(room_width) div TILE_SIZE)*TILE_SIZE, (random(room_height) div TILE_SIZE)*TILE_SIZE, objWaterDeep) ;
     with map_object_id
     {
         scrFindFreeSpace() ;
@@ -24,77 +24,77 @@ repeat 6
         // randomly expand right
         if irandom(10) < 3 then
         {
-            if place_free(x+32,y) then instance_create(x+32, y, objWaterDeep) ;
+            if place_free(x+TILE_SIZE,y) then instance_create(x+TILE_SIZE, y, objWaterDeep) ;
         }
         // randomly expand left
         if irandom(10) < 3 then
         {
-            if place_free(x-32,y) then instance_create(x-32, y, objWaterDeep) ;
+            if place_free(x-TILE_SIZE,y) then instance_create(x-TILE_SIZE, y, objWaterDeep) ;
         }
         // randomly expand up
         if irandom(10) < 3 then
         {
-            if place_free(x,y-32) then instance_create(x, y-32, objWaterDeep) ;
+            if place_free(x,y-TILE_SIZE) then instance_create(x, y-TILE_SIZE, objWaterDeep) ;
         }
         // randomly expand down
         if irandom(10) < 3 then
         {
-            if place_free(x,y+32) then instance_create(x, y+32, objWaterDeep) ;
+            if place_free(x,y+TILE_SIZE) then instance_create(x, y+TILE_SIZE, objWaterDeep) ;
         }
     }
 }
 // add shallow water around deep water
 with objWaterDeep
 {
-    if place_empty(x-32, y) then instance_create(x-32, y, objWaterShallow) ;
-    if place_empty(x+32, y) then instance_create(x+32, y, objWaterShallow) ;
-    if place_empty(x, y-32) then instance_create(x, y-32, objWaterShallow) ;
-    if place_empty(x, y+32) then instance_create(x, y+32, objWaterShallow) ;
-    if place_empty(x-32, y-32) then instance_create(x-32, y-32, objWaterShallow) ;
-    if place_empty(x+32, y-32) then instance_create(x+32, y-32, objWaterShallow) ;
-    if place_empty(x-32, y+32) then instance_create(x-32, y+32, objWaterShallow) ;
-    if place_empty(x+32, y+32) then instance_create(x+32, y+32, objWaterShallow) ;
+    if place_empty(x-TILE_SIZE, y) then instance_create(x-TILE_SIZE, y, objWaterShallow) ;
+    if place_empty(x+TILE_SIZE, y) then instance_create(x+TILE_SIZE, y, objWaterShallow) ;
+    if place_empty(x, y-TILE_SIZE) then instance_create(x, y-TILE_SIZE, objWaterShallow) ;
+    if place_empty(x, y+TILE_SIZE) then instance_create(x, y+TILE_SIZE, objWaterShallow) ;
+    if place_empty(x-TILE_SIZE, y-TILE_SIZE) then instance_create(x-TILE_SIZE, y-TILE_SIZE, objWaterShallow) ;
+    if place_empty(x+TILE_SIZE, y-TILE_SIZE) then instance_create(x+TILE_SIZE, y-TILE_SIZE, objWaterShallow) ;
+    if place_empty(x-TILE_SIZE, y+TILE_SIZE) then instance_create(x-TILE_SIZE, y+TILE_SIZE, objWaterShallow) ;
+    if place_empty(x+TILE_SIZE, y+TILE_SIZE) then instance_create(x+TILE_SIZE, y+TILE_SIZE, objWaterShallow) ;
 }
 // add sand around shallow water
 with objWaterShallow
 {
-    if place_empty(x-32, y) then instance_create(x-32, y, objSand) ;
-    if place_empty(x+32, y) then instance_create(x+32, y, objSand) ;
-    if place_empty(x, y-32) then instance_create(x, y-32, objSand) ;
-    if place_empty(x, y+32) then instance_create(x, y+32, objSand) ;
-    if place_empty(x-32, y-32) then instance_create(x-32, y-32, objSand) ;
-    if place_empty(x+32, y-32) then instance_create(x+32, y-32, objSand) ;
-    if place_empty(x-32, y+32) then instance_create(x-32, y+32, objSand) ;
-    if place_empty(x+32, y+32) then instance_create(x+32, y+32, objSand) ;
+    if place_empty(x-TILE_SIZE, y) then instance_create(x-TILE_SIZE, y, objSand) ;
+    if place_empty(x+TILE_SIZE, y) then instance_create(x+TILE_SIZE, y, objSand) ;
+    if place_empty(x, y-TILE_SIZE) then instance_create(x, y-TILE_SIZE, objSand) ;
+    if place_empty(x, y+TILE_SIZE) then instance_create(x, y+TILE_SIZE, objSand) ;
+    if place_empty(x-TILE_SIZE, y-TILE_SIZE) then instance_create(x-TILE_SIZE, y-TILE_SIZE, objSand) ;
+    if place_empty(x+TILE_SIZE, y-TILE_SIZE) then instance_create(x+TILE_SIZE, y-TILE_SIZE, objSand) ;
+    if place_empty(x-TILE_SIZE, y+TILE_SIZE) then instance_create(x-TILE_SIZE, y+TILE_SIZE, objSand) ;
+    if place_empty(x+TILE_SIZE, y+TILE_SIZE) then instance_create(x+TILE_SIZE, y+TILE_SIZE, objSand) ;
 }
 // fill in deep water inside corners
 with objWaterDeep
 {
-    if (instance_place(x+32, y+32, objWaterDeep) > 0) and (instance_place(x+32, y, objWaterDeep) = noone) then
+    if (instance_place(x+TILE_SIZE, y+TILE_SIZE, objWaterDeep) > 0) and (instance_place(x+TILE_SIZE, y, objWaterDeep) = noone) then
     {
-        instance_create(x+32, y, objWaterShallow) ;
-        instance_create(x+32, y, objWaterDeepTR) ;
+        instance_create(x+TILE_SIZE, y, objWaterShallow) ;
+        instance_create(x+TILE_SIZE, y, objWaterDeepTR) ;
     }
-    if (instance_place(x-32, y+32, objWaterDeep) > 0) and (instance_place(x-32, y, objWaterDeep) = noone) then
+    if (instance_place(x-TILE_SIZE, y+TILE_SIZE, objWaterDeep) > 0) and (instance_place(x-TILE_SIZE, y, objWaterDeep) = noone) then
     {
-        instance_create(x-32, y, objWaterShallow) ;
-        instance_create(x-32, y, objWaterDeepTL) ;
+        instance_create(x-TILE_SIZE, y, objWaterShallow) ;
+        instance_create(x-TILE_SIZE, y, objWaterDeepTL) ;
     }
-    if (instance_place(x+32, y-32, objWaterDeep) > 0) and (instance_place(x+32, y, objWaterDeep) = noone) then
+    if (instance_place(x+TILE_SIZE, y-TILE_SIZE, objWaterDeep) > 0) and (instance_place(x+TILE_SIZE, y, objWaterDeep) = noone) then
     {
-        instance_create(x+32, y, objWaterShallow) ;
-        instance_create(x+32, y, objWaterDeepBR) ;
+        instance_create(x+TILE_SIZE, y, objWaterShallow) ;
+        instance_create(x+TILE_SIZE, y, objWaterDeepBR) ;
     }
-    if (instance_place(x-32, y-32, objWaterDeep) > 0) and (instance_place(x-32, y, objWaterDeep) = noone) then
+    if (instance_place(x-TILE_SIZE, y-TILE_SIZE, objWaterDeep) > 0) and (instance_place(x-TILE_SIZE, y, objWaterDeep) = noone) then
     {
-        instance_create(x-32, y, objWaterShallow) ;
-        instance_create(x-32, y, objWaterDeepBL) ;
+        instance_create(x-TILE_SIZE, y, objWaterShallow) ;
+        instance_create(x-TILE_SIZE, y, objWaterDeepBL) ;
     }
 }
 // round off deep water outside corners
 with objWaterDeep
 {
-   if (instance_place(x+32, y, objWaterDeep) == noone) and (instance_place(x+32, y, objParentWaterDeepInsideCorner) == noone) and (instance_place(x, y-32, objWaterDeep) == noone) and (instance_place(x, y-32, objParentWaterDeepInsideCorner) == noone)  then
+   if (instance_place(x+TILE_SIZE, y, objWaterDeep) == noone) and (instance_place(x+TILE_SIZE, y, objParentWaterDeepInsideCorner) == noone) and (instance_place(x, y-TILE_SIZE, objWaterDeep) == noone) and (instance_place(x, y-TILE_SIZE, objParentWaterDeepInsideCorner) == noone)  then
    {
         instance_create(x, y, objWaterShallow) ;
         instance_change(objWaterDeepCornerTR, true) ;
@@ -103,7 +103,7 @@ with objWaterDeep
 // turn outside corners into points where appropriate
 with objWaterDeepCornerTR
 {
-    if instance_place(x-32, y, objWaterDeep) == noone and instance_place(x-32, y, objParentWaterDeepInsideCorner) == noone and instance_place(x-32, y, objParentWaterDeepOutsideCorner) == noone then
+    if instance_place(x-TILE_SIZE, y, objWaterDeep) == noone and instance_place(x-TILE_SIZE, y, objParentWaterDeepInsideCorner) == noone and instance_place(x-TILE_SIZE, y, objParentWaterDeepOutsideCorner) == noone then
     {
         instance_change(objWaterDeepPointUp, true) ;
     }
@@ -111,22 +111,22 @@ with objWaterDeepCornerTR
 // make edges bit rougher
 with objWaterDeep
 {
-    if instance_place(x+32, y, objParentObstacle) == noone then
+    if instance_place(x+TILE_SIZE, y, objParentObstacle) == noone then
     {
         instance_create(x, y, objWaterShallow) ;
         instance_change(objWaterDeepEdgeRight, true) ;
     }
-    if instance_place(x-32, y, objParentObstacle) == noone and instance_place(x-32, y, objParentWaterDeepEdge) == noone then
+    if instance_place(x-TILE_SIZE, y, objParentObstacle) == noone and instance_place(x-TILE_SIZE, y, objParentWaterDeepEdge) == noone then
     {
         instance_create(x, y, objWaterShallow) ;
         instance_change(objWaterDeepEdgeLeft, true) ;
     }
-    if instance_place(x, y+32, objParentObstacle) == noone and instance_place(x, y+32, objParentWaterDeepEdge) == noone then
+    if instance_place(x, y+TILE_SIZE, objParentObstacle) == noone and instance_place(x, y+TILE_SIZE, objParentWaterDeepEdge) == noone then
     {
         instance_create(x, y, objWaterShallow) ;
         instance_change(objWaterDeepEdgeBottom, true) ;
     }
-    if instance_place(x, y-32, objParentObstacle) == noone and instance_place(x, y-32, objParentWaterDeepEdge) == noone then
+    if instance_place(x, y-TILE_SIZE, objParentObstacle) == noone and instance_place(x, y-TILE_SIZE, objParentWaterDeepEdge) == noone then
     {
         instance_create(x, y, objWaterShallow) ;
         instance_change(objWaterDeepEdgeTop, true) ;
@@ -137,7 +137,7 @@ with objWaterDeep
 // seed mud
 repeat 30*scaling_factor
 {
-    map_object_id = instance_create((random(room_width) div 32)*32, (random(room_height) div 32)*32, objMud)
+    map_object_id = instance_create((random(room_width) div TILE_SIZE)*TILE_SIZE, (random(room_height) div TILE_SIZE)*TILE_SIZE, objMud)
     with map_object_id
     {
         scrFindFreeSpace() ;
@@ -151,22 +151,22 @@ repeat 6
         // randomly expand right
         if irandom(10) < 2 then
         {
-            if place_free(x+32,y) then instance_create(x+32, y, objMud) ;
+            if place_free(x+TILE_SIZE,y) then instance_create(x+TILE_SIZE, y, objMud) ;
         }
         // randomly expand left
         if irandom(10) < 2 then
         {
-            if place_free(x-32,y) then instance_create(x-32, y, objMud) ;
+            if place_free(x-TILE_SIZE,y) then instance_create(x-TILE_SIZE, y, objMud) ;
         }
         // randomly expand up
         if irandom(10) < 2 then
         {
-            if place_free(x,y-32) then instance_create(x, y-32, objMud) ;
+            if place_free(x,y-TILE_SIZE) then instance_create(x, y-TILE_SIZE, objMud) ;
         }
         // randomly expand down
         if irandom(10) < 2 then
         {
-            if place_free(x,y+32) then instance_create(x, y+32, objMud) ;
+            if place_free(x,y+TILE_SIZE) then instance_create(x, y+TILE_SIZE, objMud) ;
         }
     }
 }
@@ -174,7 +174,7 @@ repeat 6
 // populate walls
 repeat 100*scaling_factor
 {
-    map_object_id = instance_create((random(room_width) div 32)*32, (random(room_height) div 32)*32, objObstacleWall1)
+    map_object_id = instance_create((random(room_width) div TILE_SIZE)*TILE_SIZE, (random(room_height) div TILE_SIZE)*TILE_SIZE, objObstacleWall1)
     with map_object_id
     {
         scrFindFreeSpace() ;
@@ -185,7 +185,7 @@ repeat 100*scaling_factor
 
 repeat 50*scaling_factor
 {
-    map_object_id = instance_create((random(room_width) div 32)*32, (random(room_height) div 32)*32, objItemHealth)
+    map_object_id = instance_create((random(room_width) div TILE_SIZE)*TILE_SIZE, (random(room_height) div TILE_SIZE)*TILE_SIZE, objItemHealth)
     with map_object_id
     {
         scrFindFreeSpace() ;
@@ -194,7 +194,7 @@ repeat 50*scaling_factor
 
 repeat 50*scaling_factor
 {
-    map_object_id = instance_create((random(room_width) div 32)*32, (random(room_height) div 32)*32, objItemAmmo)
+    map_object_id = instance_create((random(room_width) div TILE_SIZE)*TILE_SIZE, (random(room_height) div TILE_SIZE)*TILE_SIZE, objItemAmmo)
     with map_object_id
     {
         scrFindFreeSpace() ;
@@ -202,7 +202,7 @@ repeat 50*scaling_factor
 }
 repeat 50*scaling_factor
 {
-    map_object_id = instance_create((random(room_width) div 32)*32, (random(room_height) div 32)*32, objLandMine)
+    map_object_id = instance_create((random(room_width) div TILE_SIZE)*TILE_SIZE, (random(room_height) div TILE_SIZE)*TILE_SIZE, objLandMine)
     with map_object_id
     {
         scrFindFreeSpace() ;
