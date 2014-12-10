@@ -1,11 +1,18 @@
 // intended to be called in the Create event of every object
 // input types
-globalvar KEYBOARD, JOYSTICK, JOYSTICK_SEP, JOYSTICK_SEP_DIR, TOUCH ;
-KEYBOARD = 0
-JOYSTICK = 1 // tank and turret fixed in same direction
-JOYSTICK_SEP = 2 // tank and turret move independently
-JOYSTICK_SEP_DIR = 3 // tank and turret move independently, tank moves direction pointed
-TOUCH = 4
+globalvar TANK_KEYBOARD, TANK_JOYSTICK_PAIR, TANK_JOYSTICK_SING, TANK_JOYSTICK_DIR, TANK_TOUCH ;
+TANK_KEYBOARD = 0
+TANK_JOYSTICK_PAIR = 1 // use both sticks for tank and turret fixed in same direction
+TANK_JOYSTICK_SING = 2 // left stick for tank movement with relative turning
+TANK_JOYSTICK_DIR = 3 // left stick for tank movement in direction pointed to
+TANK_TOUCH = 4
+globalvar TURRET_KEYBOARD, TURRET_JOYSTICK_PAIR, TURRET_JOYSTICK_SING, TURRET_JOYSTICK_DIR, TURRET_TOUCH ;
+TURRET_KEYBOARD = 0
+TURRET_JOYSTICK_PAIR = 1 // use both sticks for tank and turret fixed in same direction
+TURRET_JOYSTICK_SING = 2 // left stick for tank movement with relative turning
+TURRET_JOYSTICK_DIR = 3 // left stick for tank movement in direction pointed to
+TURRET_TOUCH = 4
+
 // states
 globalvar HUMAN, COMPUTER ;
 HUMAN = 0

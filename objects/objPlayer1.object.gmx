@@ -27,7 +27,8 @@
             <kind>1</kind>
             <string>current_player = PLAYER1 // this is Player 1's object
 my_team = TEAM1
-input_style = JOYSTICK_SEP_DIR
+input_style_tank = TANK_JOYSTICK_DIR
+input_style_turret = TURRET_JOYSTICK_DIR
 player_type = HUMAN
 ai_target = ENEMY
 

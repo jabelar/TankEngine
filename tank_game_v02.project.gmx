@@ -119,6 +119,8 @@
     <script>scripts\scrHindranceParentCreateEvent.gml</script>
     <scripts name="Players">
       <script>scripts\scrProcessInput.gml</script>
+      <script>scripts\scrProcessInputTank.gml</script>
+      <script>scripts\scrProcessInputTurret.gml</script>
       <script>scripts\scrProcessTankOther.gml</script>
       <script>scripts\scrProcessCollisions.gml</script>
       <script>scripts\scrPlayerAlarm3Event.gml</script>
