@@ -110,6 +110,7 @@
       <script>scripts\scrControllerCreateEvent.gml</script>
       <script>scripts\scrControllerStepEvent.gml</script>
       <script>scripts\scrControllerDrawEvent.gml</script>
+      <script>scripts\scrControllerDrawGui.gml</script>
       <script>scripts\scrControllerRoomStartEvent.gml</script>
       <scripts name="map creation">
         <script>scripts\scrCreateRoom.gml</script>
