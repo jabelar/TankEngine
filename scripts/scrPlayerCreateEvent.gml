@@ -18,7 +18,7 @@ my_speed = TANK_SPEED_BASE
 my_turn_speed = TANK_TURN_SPEED_BASE
 global.ammo_main_gun[current_player] = 10
 my_score = 0
-my_health = 100
+my_health = HEALTH_BASE
 state = NORMAL
 
 // offsets to ensure weapons launch from correct part
@@ -39,3 +39,17 @@ if player_type = COMPUTER
 {
     alarm[1] = room_speed
 }
+
+// set pathfinding options
+mp_potential_settings(45, 10, 500, false)
+//grid = mp_grid_create(0, 0, room_width div TILE_SIZE, room_height div TILE_SIZE, TILE_SIZE, TILE_SIZE);
+//mp_grid_add_instances(grid, objParentObstacle, false);
+//with (obj_Enemy)
+//   {
+//   path = path_add();
+//   if mp_grid_path(grid, path, x, y, obj_Player.x, obj_Player.y, 1)
+//      {
+//      path_start(path, 0, 3, 0);
+//      }
+//   }
+

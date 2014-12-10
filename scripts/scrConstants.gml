@@ -66,3 +66,7 @@ TANK_TURN_SPEED_BASE = 2
 TANK_TURRET_SPEED_MULTIPLIER = 2
 BULLET_SPEED_BASE = 32
 BULLET_RANGE_BASE = 0.50 // this is time (multiplier for room_speed
+
+// base stats
+globalvar HEALTH_BASE ;
+HEALTH_BASE = 100

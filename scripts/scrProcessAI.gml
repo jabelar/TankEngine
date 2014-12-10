@@ -3,9 +3,6 @@
 //update sense of surroundings
 scrProcessEnvironment()
 
-// set pathfinding options
-mp_potential_settings(30, 5, 10, true)
-
 // figure out who the enemy is
 enemy_id = -1
 if current_player = PLAYER1 

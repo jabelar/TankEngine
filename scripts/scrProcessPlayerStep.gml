@@ -8,7 +8,7 @@ switch state
         scrProcessTankWeapons()
         scrProcessCollisions()
         scrProcessTankOther()
-        if my_health <= 30
+        if my_health <= HEALTH_BASE*0.6
         {
             state = CRITICAL
             // create smoking effect
@@ -56,5 +56,4 @@ switch state
         break ;
     }   
 }
-
 
