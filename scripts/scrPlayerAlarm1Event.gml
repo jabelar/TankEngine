@@ -1,4 +1,12 @@
+show_debug_message("scrPlayerAlarm1Event starting")
 // this is the AI decision making script
+
+// update motion planning path
+if (enemy_id != noone)
+{
+    mp_potential_path_object(path, enemy_id.x, enemy_id.y, my_speed, 4, objParentObstacle)
+    // path_start(path, my_speed, 0, false);
+}
 
 // if it sees player then target it but only if you have ammo
 if global.ammo_main_gun[PLAYER2] <= 0 // go for ammo if ammo is low
@@ -28,3 +36,4 @@ else // go for enemy flag
 
 // reset alarm
 alarm[1] = room_speed // once per second
+show_debug_message("scrPlayerAlarm1Event finished")

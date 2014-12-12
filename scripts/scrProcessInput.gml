@@ -1,3 +1,4 @@
+show_debug_message("scrProcessInput starting")
 // clear input
 key_forward = false 
 key_right = false 
@@ -19,3 +20,4 @@ else // computer player so process AI
 {
     scrProcessAI()
 }
+show_debug_message("scrProcessInput finished")

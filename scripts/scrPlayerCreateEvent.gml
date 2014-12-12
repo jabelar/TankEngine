@@ -1,3 +1,4 @@
+show_debug_message("scrPlayerCreateEvent starting for player = "+string(current_player))
 if current_player = PLAYER1 then body_sprite = sprHuskyRed
 else body_sprite = sprHuskyBlue
 has_main_gun = true
@@ -38,18 +39,9 @@ have_own_flag = false
 if player_type = COMPUTER
 {
     alarm[1] = room_speed
+
+    // set pathfinding options
+    mp_potential_settings(45, 10, 5, false)
+    path = path_add()
 }
-
-// set pathfinding options
-mp_potential_settings(45, 10, 500, false)
-//grid = mp_grid_create(0, 0, room_width div TILE_SIZE, room_height div TILE_SIZE, TILE_SIZE, TILE_SIZE);
-//mp_grid_add_instances(grid, objParentObstacle, false);
-//with (obj_Enemy)
-//   {
-//   path = path_add();
-//   if mp_grid_path(grid, path, x, y, obj_Player.x, obj_Player.y, 1)
-//      {
-//      path_start(path, 0, 3, 0);
-//      }
-//   }
-
+show_debug_message("scrPlayerCreateEvent finished")

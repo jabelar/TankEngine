@@ -1,3 +1,4 @@
+show_debug_message("scrCreateRoom starting")
 var scaling_factor ;
 scaling_factor = room_width * room_height / (12000 * 12000)
 show_debug_message("room_width = "+string(room_width))
@@ -6,6 +7,7 @@ show_debug_message("room_height = "+string(room_height))
 // randomize seed
 randomize()
 
+show_debug_message("Spawning players, homebase and flags")
 // spawn players
 home_base_id_1 = instance_create(TILE_SIZE*3, TILE_SIZE*3, objHomeBaseTeam1)
 home_base_id_2 = instance_create(room_width-TILE_SIZE*3, room_height-TILE_SIZE*3, objHomeBaseTeam2)
@@ -14,6 +16,7 @@ instance_create(home_base_id_1.x+home_base_id_1.sprite_width/2, home_base_id_1.y
 instance_create(home_base_id_2.x+home_base_id_2.sprite_width/2, home_base_id_2.y+home_base_id_2.sprite_width/2, objFlagBlue)
 instance_create(home_base_id_2.x+home_base_id_2.sprite_width/2, home_base_id_2.y+home_base_id_2.sprite_width/2, objPlayer2)
 
+show_debug_message("Populating deep water")
 // populate deep water
 // seed deep water
 repeat 30*scaling_factor
@@ -24,6 +27,8 @@ repeat 30*scaling_factor
         scrFindFreeSpace() ;
     }
 }
+
+show_debug_message("Expanding deep water")
 // expand deep water
 repeat 6
 {
@@ -51,6 +56,8 @@ repeat 6
         }
     }
 }
+
+show_debug_message("Adding shallow water")
 // add shallow water around deep water
 with objWaterDeep
 {
@@ -63,6 +70,8 @@ with objWaterDeep
     if place_empty(x-TILE_SIZE, y+TILE_SIZE) then instance_create(x-TILE_SIZE, y+TILE_SIZE, objWaterShallow) ;
     if place_empty(x+TILE_SIZE, y+TILE_SIZE) then instance_create(x+TILE_SIZE, y+TILE_SIZE, objWaterShallow) ;
 }
+
+show_debug_message("Adding sand")
 // add sand around shallow water
 with objWaterShallow
 {
@@ -75,6 +84,8 @@ with objWaterShallow
     if place_empty(x-TILE_SIZE, y+TILE_SIZE) then instance_create(x-TILE_SIZE, y+TILE_SIZE, objSand) ;
     if place_empty(x+TILE_SIZE, y+TILE_SIZE) then instance_create(x+TILE_SIZE, y+TILE_SIZE, objSand) ;
 }
+
+show_debug_message("Filling in deep water corners")
 // fill in deep water inside corners
 with objWaterDeep
 {
@@ -99,6 +110,8 @@ with objWaterDeep
         instance_create(x-TILE_SIZE, y, objWaterDeepBL) ;
     }
 }
+
+show_debug_message("Rounding out deep water outside corners")
 // round off deep water outside corners
 with objWaterDeep
 {
@@ -141,6 +154,7 @@ with objWaterDeep
     }
 }
 
+show_debug_message("Populating mud")
 // populate mud
 // seed mud
 repeat 30*scaling_factor
@@ -151,6 +165,7 @@ repeat 30*scaling_factor
         scrFindFreeSpace() ;
     }
 }
+show_debug_message("Expanding mud")
 // expand mud
 repeat 6
 {
@@ -179,6 +194,7 @@ repeat 6
     }
 }
 
+show_debug_message("Populating walls")
 // populate walls
 repeat 100*scaling_factor
 {
@@ -189,8 +205,8 @@ repeat 100*scaling_factor
     }
 }
 
+show_debug_message("Populating items")
 // populate items
-
 repeat 50*scaling_factor
 {
     map_object_id = instance_create((random(room_width) div TILE_SIZE)*TILE_SIZE, (random(room_height) div TILE_SIZE)*TILE_SIZE, objItemHealth)
@@ -216,3 +232,5 @@ repeat 50*scaling_factor
         scrFindFreeSpace() ;
     }
 }
+
+show_debug_message("scrCreateRoom finished")
