@@ -32,8 +32,8 @@ if view_current = current_player // only draw in players view
         }
     }
     
-    // debug
     if current_player == PLAYER2 then draw_path(path, x, y, false)
+    
 } 
 // debug messages
 // draw_text(x, y-100, ai_target)

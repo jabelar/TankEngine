@@ -100,7 +100,8 @@
   </sprites>
   <backgrounds name="background">
     <background>background\bgGrass</background>
-    <background>background\bgTitle</background>
+    <background>background\bgTitle720p</background>
+    <background>background\bgTitle810p</background>
     <background>background\bgGrassHD1</background>
   </backgrounds>
   <paths name="paths"/>
@@ -112,9 +113,12 @@
       <script>scripts\scrControllerDrawEvent.gml</script>
       <script>scripts\scrControllerDrawGui.gml</script>
       <script>scripts\scrControllerRoomStartEvent.gml</script>
-      <scripts name="map creation">
+      <scripts name="Map Creation">
         <script>scripts\scrCreateRoom.gml</script>
         <script>scripts\scrFindFreeSpace.gml</script>
+      </scripts>
+      <scripts name="Display Management">
+        <script>scripts\scrSetApplicationSurfaceSize.gml</script>
       </scripts>
     </scripts>
     <script>scripts\scrHindranceParentCreateEvent.gml</script>
