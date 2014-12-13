@@ -32,7 +32,7 @@ if view_current = current_player // only draw in players view
         }
     }
     
-    if current_player == PLAYER2 then draw_path(path, x, y, false)
+    if current_player == PLAYER2 then draw_path(path, xstart, ystart, false)
     
 } 
 // debug messages

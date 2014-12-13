@@ -233,4 +233,12 @@ repeat 50*scaling_factor
     }
 }
 
+with (objPlayer2)
+{
+    mp_grid_add_instances(grid, objParentObstacle, false)
+    path_found = mp_grid_path(grid, path, x, y, objPlayer1.x, objPlayer1.y, true)
+    path_start(path, my_speed, 0, false)
+    show_debug_message("Path found = "+string(path_found)+" and Path length ="+string(path_get_length(path)))
+}
+
 show_debug_message("scrCreateRoom finished")
