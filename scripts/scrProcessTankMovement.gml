@@ -33,27 +33,27 @@ if key_forward
         {
             case ENEMY:
             {
-//                mp_potential_step(enemy_id.x, enemy_id.y, current_speed, false)
+                mp_potential_step(enemy_id.x, enemy_id.y, current_speed, false)
                 break ;
             }
             case HOME:
             {
-//                mp_potential_step(home_id.x, home_id.y, current_speed, false)
+                mp_potential_step(home_id.x, home_id.y, current_speed, false)
                 break ;
             }   
             case ENEMY_FLAG:
             {
-//                mp_potential_step(enemy_flag_id.x, enemy_flag_id.y, current_speed, false)
+                mp_potential_step(enemy_flag_id.x, enemy_flag_id.y, current_speed, false)
                 break ;
             }   
             case HEALTH:
             {
-//                mp_potential_step(nearest_health_id.x, nearest_health_id.y, current_speed, false)
+                mp_potential_step(nearest_health_id.x, nearest_health_id.y, current_speed, false)
                 break ;
             }
             case AMMO:
             {
-//                mp_potential_step(nearest_ammo_id.x, nearest_ammo_id.y, current_speed, false)
+                mp_potential_step(nearest_ammo_id.x, nearest_ammo_id.y, current_speed, false)
                 break ;
             }
         }
