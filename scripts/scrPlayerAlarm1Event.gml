@@ -13,7 +13,7 @@ if global.ammo_main_gun[PLAYER2] <= 0 // go for ammo if ammo is low
         show_debug_message("Path found = "+string(path_found)+" and Path length ="+string(path_get_length(path)))
         if path_found
         {
-            path_start(path, my_speed, 0, false)
+            path_start(path, current_speed, 0, false)
             prev_ai_target = ai_target
             xpathstart = x
             ypathstart = y
@@ -29,7 +29,7 @@ else if distance_to_object(objPlayer1) < 6*TILE_SIZE // see enemy
         show_debug_message("Path found = "+string(path_found)+" and Path length ="+string(path_get_length(path)))
         if path_found
         {
-            path_start(path, my_speed, 0, false)
+            path_start(path, current_speed, 0, false)
             prev_ai_target = ai_target
             xpathstart = x
             ypathstart = y
@@ -45,7 +45,7 @@ else if have_enemy_flag
         show_debug_message("Path found = "+string(path_found)+" and Path length ="+string(path_get_length(path)))
         if path_found
         {
-            path_start(path, my_speed, 0, false)
+            path_start(path, current_speed, 0, false)
             prev_ai_target = ai_target
             xpathstart = x
             ypathstart = y
@@ -61,7 +61,7 @@ else if global.ammo_main_gun[PLAYER2] < 10 // go for ammo if ammo is low
         show_debug_message("Path found = "+string(path_found)+" and Path length ="+string(path_get_length(path)))
         if path_found
         {
-            path_start(path, my_speed, 0, false)
+            path_start(path, current_speed, 0, false)
             prev_ai_target = ai_target
             xpathstart = x
             ypathstart = y
@@ -77,7 +77,7 @@ else if my_health < 70 // go for health if health is low
         show_debug_message("Path found = "+string(path_found)+" and Path length ="+string(path_get_length(path)))
         if path_found
         {
-            path_start(path, my_speed, 0, false)
+            path_start(path, current_speed, 0, false)
             prev_ai_target = ai_target
             xpathstart = x
             ypathstart = y
@@ -93,7 +93,7 @@ else // go for enemy flag
         show_debug_message("Path found = "+string(path_found)+" and Path length ="+string(path_get_length(path)))
         if path_found
         {
-            path_start(path, my_speed, 0, false)
+            path_start(path, current_speed, 0, false)
             prev_ai_target = ai_target
             xpathstart = x
             ypathstart = y

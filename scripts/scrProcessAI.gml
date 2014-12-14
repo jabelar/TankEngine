@@ -11,10 +11,6 @@ if enemy_id != -1
     {
         case ENEMY:
         {
-            // process turning
-            if point_direction(x, y, enemy_id.x, enemy_id.y) > direction+my_turn_speed then key_left = true
-            if point_direction(x, y, enemy_id.x, enemy_id.y) < direction-my_turn_speed then key_right = true
-            image_angle = direction
             // process shooting
             if distance_to_object(enemy_id) < 16*room_speed // close enough to start shooting
             {
@@ -25,37 +21,21 @@ if enemy_id != -1
         }
         case HOME:
         {
-            // process turning
-            if point_direction(x, y, home_id.x, enemy_flag_id.y) > direction+my_turn_speed then key_left = true
-            if point_direction(x, y, home_id.x, enemy_flag_id.y) < direction-my_turn_speed then key_right = true
-            image_angle = direction
             key_forward = true
             break ;
         }
         case ENEMY_FLAG:
         {
-            // process turning
-            if point_direction(x, y, enemy_flag_id.x, enemy_flag_id.y) > direction+my_turn_speed then key_left = true
-            if point_direction(x, y, enemy_flag_id.x, enemy_flag_id.y) < direction-my_turn_speed then key_right = true
-            image_angle = direction
             key_forward = true
             break ;
         }
         case HEALTH:
         {
-            // process turning
-            if point_direction(x, y, nearest_health_id.x, nearest_health_id.y) > direction+my_turn_speed then key_left = true
-            if point_direction(x, y, nearest_health_id.x, nearest_health_id.y) < direction-my_turn_speed then key_right = true
-            image_angle = direction
             key_forward = true
             break ;
         }
         case AMMO:
         {
-            // process turning
-            if point_direction(x, y, nearest_ammo_id.x, nearest_ammo_id.y) > direction+my_turn_speed then key_left = true
-            if point_direction(x, y, nearest_ammo_id.x, nearest_ammo_id.y) < direction-my_turn_speed then key_right = true
-            image_angle = direction
             key_forward = true
             break ;
         }        

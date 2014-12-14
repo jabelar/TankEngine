@@ -27,34 +27,40 @@ if key_forward
     {
         move_contact_solid(direction, current_speed) ;
     }
-    else
+    else // computer player
     {
         path_speed = current_speed
+        if abs(angle_difference(direction, image_angle)) < current_turn_speed
+        {
+            // clamp angle to direction
+            image_angle = direction
+        }
+        else // need to turn
+        {
+            path_speed = 0 // stop to turn like the direct mode of human controls
+            image_angle += sign(angle_difference(direction, image_angle))*current_turn_speed
+        }
+        
         switch ai_target
         {
             case ENEMY:
             {
-//                mp_potential_step(enemy_id.x, enemy_id.y, current_speed, false)
                 break ;
             }
             case HOME:
             {
-//                mp_potential_step(home_id.x, home_id.y, current_speed, false)
-                break ;
+              break ;
             }   
             case ENEMY_FLAG:
             {
-//                mp_potential_step(enemy_flag_id.x, enemy_flag_id.y, current_speed, false)
                 break ;
             }   
             case HEALTH:
             {
-//                mp_potential_step(nearest_health_id.x, nearest_health_id.y, current_speed, false)
                 break ;
             }
             case AMMO:
             {
-//                mp_potential_step(nearest_ammo_id.x, nearest_ammo_id.y, current_speed, false)
                 break ;
             }
         }

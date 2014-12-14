@@ -239,7 +239,7 @@ with (objPlayer2)
     path_found = mp_grid_path(grid, path, x, y, objPlayer1.x, objPlayer1.y, true)
     if path_found
     {
-        path_start(path, my_speed, 0, false)
+        path_start(path, 0, 0, false)
         prev_ai_target = ai_target
         xpathstart = x
         ypathstart = y
