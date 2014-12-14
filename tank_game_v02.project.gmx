@@ -141,6 +141,7 @@
         <script>scripts\scrProcessEnvironment.gml</script>
         <script>scripts\scrProcessAI.gml</script>
       </scripts>
+      <script>scripts\scrPathEndEvent.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

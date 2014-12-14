@@ -44,8 +44,9 @@ if player_type = COMPUTER
     mp_potential_settings(30, 3, 10, false)
     grid = mp_grid_create(0, 0, room_width/TILE_SIZE, room_height/TILE_SIZE, TILE_SIZE, TILE_SIZE)
     path = path_add()
+    mp_grid_add_instances(grid, objParentObstacle, false) // Need to do this here for when player regenerates need to update
+    path_found = false
     xpathstart = x
     ypathstart = y
-    mp_grid_add_instances(grid, objParentObstacle, false)
 }
 show_debug_message("scrPlayerCreateEvent finished")
