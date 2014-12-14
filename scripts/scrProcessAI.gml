@@ -7,6 +7,22 @@ scrProcessEnvironment()
 // only process enemy if it exists (i.e. wasn't killed or respawning)
 if enemy_id != -1
 {
+    if path_found then key_forward = true
+    if abs(angle_difference(direction, image_angle)) >= current_turn_speed
+    {
+        key_forward = false // stop to turn like the direct mode of human controls
+        if angle_difference(direction, image_angle) > 0
+        {
+            key_right = true
+            key_left = false
+        }
+        else
+        {
+            key_right = false
+            key_left = true
+        }
+    }
+
     switch ai_target
     {
         case ENEMY:
@@ -16,27 +32,22 @@ if enemy_id != -1
             {
                 key_weapon1_pressed = true
             }
-            key_forward = true
             break ;
         }
         case HOME:
         {
-            key_forward = true
             break ;
         }
         case ENEMY_FLAG:
         {
-            key_forward = true
             break ;
         }
         case HEALTH:
         {
-            key_forward = true
             break ;
         }
         case AMMO:
         {
-            key_forward = true
             break ;
         }        
     }

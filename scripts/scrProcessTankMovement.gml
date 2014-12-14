@@ -7,104 +7,115 @@ if state = DYING then
 }
 else
 {
-image_speed = 0 ;
-
-// slow down if in mud or shallow water
-if instance_place(x, y, objParentHindrance) then
-{
-    current_speed = my_speed * 0.5 ;
-    current_turn_speed = my_turn_speed * 0.25 ;
-}
-else
-{
-    current_speed = my_speed ;
-    current_turn_speed = my_turn_speed ;
-}
-
-if key_forward
-{
-    if player_type = HUMAN
+    image_speed = 0 ;
+    
+    // slow down if in mud or shallow water
+    if instance_place(x, y, objParentHindrance) then
     {
-        move_contact_solid(direction, current_speed) ;
+        current_speed = my_speed * 0.5 ;
+        current_turn_speed = my_turn_speed * 0.25 ;
     }
-    else // computer player
+    else
     {
-        path_speed = current_speed
-        if abs(angle_difference(direction, image_angle)) < current_turn_speed
+        current_speed = my_speed ;
+        current_turn_speed = my_turn_speed ;
+    }
+    
+    if key_forward
+    {
+        if player_type = HUMAN
         {
-            // clamp angle to direction
-            image_angle = direction
+            move_contact_solid(direction, current_speed) ;
         }
-        else // need to turn
+        else // computer player
         {
-            path_speed = 0 // stop to turn like the direct mode of human controls
-            image_angle += sign(angle_difference(direction, image_angle))*current_turn_speed
+            path_speed = current_speed
+            
+            switch ai_target
+            {
+                case ENEMY:
+                {
+                    dir_to_enemy = point_direction(x, y, enemy_id.x, enemy_id.y)
+                    if abs(angle_difference(dir_to_enemy, direction+angle_main_gun)) < TANK_TURN_SPEED_BASE*TANK_TURRET_SPEED_MULTIPLIER
+                    {
+                        // clamp angle to direction
+                        angle_main_gun = dir_to_enemy-direction
+                    }
+                    else // need to turn
+                    {
+                        angle_main_gun += sign(angle_difference(dir_to_enemy, direction+angle_main_gun))*TANK_TURN_SPEED_BASE*TANK_TURRET_SPEED_MULTIPLIER
+                    }
+                    break ;
+                }
+                case HOME:
+                {
+                  break ;
+                }   
+                case ENEMY_FLAG:
+                {
+                    break ;
+                }   
+                case HEALTH:
+                {
+                    break ;
+                }
+                case AMMO:
+                {
+                    break ;
+                }
+            }
         }
-        
-        switch ai_target
+        tracks_id = instance_create(x, y, objTracks) ;
+        tracks_id.image_angle = image_angle ;
+        image_speed = 2 ;
+    }
+    else // not moving forward
+    {
+        if player_type == COMPUTER
         {
-            case ENEMY:
-            {
-                break ;
-            }
-            case HOME:
-            {
-              break ;
-            }   
-            case ENEMY_FLAG:
-            {
-                break ;
-            }   
-            case HEALTH:
-            {
-                break ;
-            }
-            case AMMO:
-            {
-                break ;
-            }
+            path_speed = 0
         }
     }
-    tracks_id = instance_create(x, y, objTracks) ;
-    tracks_id.image_angle = image_angle ;
-    image_speed = 2 ;
-}
-if key_backward
-{
-    move_contact_solid(direction+180, current_speed/2) ;
-    tracks_id = instance_create(x, y, objTracks) ;
-    tracks_id.image_angle = image_angle ;
-    image_speed = -1 ;
-}
-if key_right
-{
-    direction -= current_turn_speed ;
-    image_angle = direction ;
-    // but don't turn into an obstacle
-    if instance_place(x, y, objParentObstacle)
+    
+    if key_backward
     {
-        // revert the turn
-        direction += current_turn_speed ;
-        image_angle = direction ;
+        move_contact_solid(direction+180, current_speed/2) ;
+        tracks_id = instance_create(x, y, objTracks) ;
+        tracks_id.image_angle = image_angle ;
+        image_speed = -1 ;
     }
-}
-if key_left
-{
-    direction += current_turn_speed ;
-    image_angle = direction ;
-    // but don't turn into an obstacle
-    if instance_place(x, y, objParentObstacle)
+    
+    if key_right
     {
-        // revert the turn
         direction -= current_turn_speed ;
         image_angle = direction ;
+        // but don't turn into an obstacle
+        if instance_place(x, y, objParentObstacle)
+        {
+            // revert the turn
+            direction += current_turn_speed ;
+            image_angle = direction ;
+        }
     }
-}
-// keep in room (assumes origin is centered)
-if x < 0 then x = 0 ;
-if x > room_width then x = room_width ;
-if y < 0 then y = 0 ;
-if y > room_height then y = room_height ;
+    
+    if key_left
+    {
+        direction += current_turn_speed ;
+        image_angle = direction ;
+        // but don't turn into an obstacle
+        if instance_place(x, y, objParentObstacle)
+        {
+            // revert the turn
+            direction -= current_turn_speed ;
+            image_angle = direction ;
+        }
+    }
+    
+    // keep in room (assumes origin is centered)
+    if x < 0 then x = 0 ;
+    if x > room_width then x = room_width ;
+    if y < 0 then y = 0 ;
+    if y > room_height then y = room_height ;
 }
 
 // show_debug_message("scrProcessTankMovement finished")
