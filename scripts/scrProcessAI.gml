@@ -21,8 +21,6 @@ if enemy_id != -1
                 key_weapon1_pressed = true
             }
             key_forward = true
-            // set path
-            mp_potential_path_object(path, x, y, enemy_id.x, enemy_id.y, objParentObstacle)
             break ;
         }
         case HOME:
