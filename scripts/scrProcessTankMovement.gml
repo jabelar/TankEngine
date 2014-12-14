@@ -1,7 +1,7 @@
 // show_debug_message("scrProcessTankMovement starting")
 // process movement
 // don't move if DYING
-if state = DYING then 
+if state == DYING then 
 {
 // do nothing
 }
@@ -87,27 +87,41 @@ else
     
     if key_right
     {
-        direction -= current_turn_speed ;
-        image_angle = direction ;
-        // but don't turn into an obstacle
-        if instance_place(x, y, objParentObstacle)
+        if player_type == HUMAN
         {
-            // revert the turn
-            direction += current_turn_speed ;
+            direction -= current_turn_speed ;
             image_angle = direction ;
+            // but don't turn into an obstacle
+            if instance_place(x, y, objParentObstacle)
+            {
+                // revert the turn
+                direction += current_turn_speed ;
+                image_angle = direction ;
+            }
+        }
+        else // computer player
+        {
+            image_angle -= current_turn_speed
         }
     }
     
     if key_left
     {
-        direction += current_turn_speed ;
-        image_angle = direction ;
-        // but don't turn into an obstacle
-        if instance_place(x, y, objParentObstacle)
+        if player_type == HUMAN
         {
-            // revert the turn
-            direction -= current_turn_speed ;
+            direction += current_turn_speed ;
             image_angle = direction ;
+            // but don't turn into an obstacle
+            if instance_place(x, y, objParentObstacle)
+            {
+                // revert the turn
+                direction -= current_turn_speed ;
+                image_angle = direction ;
+            }
+        }
+        else // computer player
+        {
+            image_angle += current_turn_speed
         }
     }
     

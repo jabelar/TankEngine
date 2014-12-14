@@ -4,7 +4,7 @@
 scrProcessEnvironment()
 
 // if it sees player then target it but only if you have ammo
-if global.ammo_main_gun[PLAYER2] <= 0 // go for ammo if ammo is low
+if global.ammo_main_gun[PLAYER2] <= 0 // go for ammo if ammo is completely out
 {
     ai_target = AMMO
     path_found = mp_grid_path(grid, path, x, y, nearest_ammo_id.x, nearest_ammo_id.y, true)
