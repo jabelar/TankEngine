@@ -29,6 +29,7 @@ if key_forward
     }
     else
     {
+        path_speed = current_speed
         switch ai_target
         {
             case ENEMY:
