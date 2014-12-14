@@ -1,4 +1,4 @@
-show_debug_message("scrPlayerDrawEvent starting")
+// show_debug_message("scrPlayerDrawEvent starting")
 
 draw_healthbar(x-TILE_SIZE, y-1.5*TILE_SIZE, x+TILE_SIZE, y-1.3*TILE_SIZE, my_health, c_black, c_red, c_green, 0, true, true)
 draw_sprite_ext(body_sprite, image_index, x, y, 1, 1, image_angle, c_white, 1)
@@ -32,7 +32,7 @@ if view_current = current_player // only draw in players view
         }
     }
     
-    if current_player == PLAYER2 then draw_path(path, xstart, ystart, false)
+    if current_player == PLAYER2 then draw_path(path, xpathstart, ypathstart, false)
     
 } 
 // debug messages
@@ -40,4 +40,4 @@ if view_current = current_player // only draw in players view
 // draw_text(x, y-50, alarm[1])
 // draw_text(x, y-20, have_enemy_flag)
 
-show_debug_message("scrPlayerDrawEvent finished")
+// show_debug_message("scrPlayerDrawEvent finished")

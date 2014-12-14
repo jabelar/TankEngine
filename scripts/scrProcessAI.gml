@@ -1,4 +1,4 @@
-show_debug_message("scrProcessAI starting")
+// show_debug_message("scrProcessAI starting")
 // creates input but based on computer AI
 
 //update sense of surroundings
@@ -63,4 +63,4 @@ if enemy_id != -1
         }        
     }
 }
-show_debug_message("scrProcessAI finished")
+// show_debug_message("scrProcessAI finished")

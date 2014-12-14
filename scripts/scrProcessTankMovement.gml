@@ -1,4 +1,4 @@
-show_debug_message("scrProcessTankMovement starting")
+// show_debug_message("scrProcessTankMovement starting")
 // process movement
 // don't move if DYING
 if state = DYING then 
@@ -101,4 +101,4 @@ if y < 0 then y = 0 ;
 if y > room_height then y = room_height ;
 }
 
-show_debug_message("scrProcessTankMovement finished")
+// show_debug_message("scrProcessTankMovement finished")
