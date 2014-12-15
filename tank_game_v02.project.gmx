@@ -67,11 +67,32 @@
     <sprites name="Terrain">
       <sprite>sprites\sprTracks</sprite>
       <sprite>sprites\sprTracksNarrow</sprite>
-      <sprite>sprites\sprMud</sprite>
       <sprite>sprites\sprWaterShallow</sprite>
       <sprite>sprites\sprRoadPaved</sprite>
       <sprite>sprites\sprRoadDirt</sprite>
       <sprite>sprites\sprSand</sprite>
+      <sprites name="Mud">
+        <sprite>sprites\sprMud</sprite>
+        <sprites name="Inside Corners">
+          <sprite>sprites\sprMudBR</sprite>
+          <sprite>sprites\sprMudTL</sprite>
+          <sprite>sprites\sprMudTR</sprite>
+          <sprite>sprites\sprMudBL</sprite>
+        </sprites>
+        <sprites name="Outside Corners">
+          <sprite>sprites\sprMudCornerTR</sprite>
+        </sprites>
+        <sprites name="Points">
+          <sprite>sprites\sprMudPointUp</sprite>
+          <sprite>sprites\sprMudPointRight</sprite>
+        </sprites>
+        <sprites name="Edges">
+          <sprite>sprites\sprMudEdgeRight</sprite>
+          <sprite>sprites\sprMudEdgeLeft</sprite>
+          <sprite>sprites\sprMudEdgeTop</sprite>
+          <sprite>sprites\sprMudEdgeBottom</sprite>
+        </sprites>
+      </sprites>
     </sprites>
     <sprites name="Flags">
       <sprite>sprites\sprFlagRed</sprite>
@@ -153,7 +174,6 @@
       <object>objects\objParentFlag</object>
       <object>objects\objParentHazard</object>
       <object>objects\objParentBase</object>
-      <object>objects\objParentHindrance</object>
       <objects name="ParentsObstacles">
         <object>objects\objParentObstacle</object>
         <objects name="ParentsWaterDeep">
@@ -162,6 +182,13 @@
           <object>objects\objParentWaterDeepPoint</object>
           <object>objects\objParentWaterDeepEdge</object>
         </objects>
+      </objects>
+      <objects name="Parents Hindrances">
+        <object>objects\objParentHindrance</object>
+        <object>objects\objParentMudInsideCorner</object>
+        <object>objects\objParentMudOutsideCorner</object>
+        <object>objects\objParentMudPoint</object>
+        <object>objects\objParentMudEdge</object>
       </objects>
     </objects>
     <objects name="Controllers">
@@ -208,8 +235,29 @@
       <object>objects\objTracks</object>
       <object>objects\objSand</object>
       <objects name="Hindrances">
-        <object>objects\objMud</object>
         <object>objects\objWaterShallow</object>
+        <objects name="Mud">
+          <object>objects\objMud</object>
+          <objects name="Inside Corners">
+            <object>objects\objMudTR</object>
+            <object>objects\objMudBL</object>
+            <object>objects\objMudBR</object>
+            <object>objects\objMudTL</object>
+          </objects>
+          <objects name="Outside Corners">
+            <object>objects\objMudCornerTR</object>
+          </objects>
+          <objects name="Points">
+            <object>objects\objMudPointRight</object>
+            <object>objects\objMudPointUp</object>
+          </objects>
+          <objects name="Edges">
+            <object>objects\objMudEdgeRight</object>
+            <object>objects\objMudEdgeTop</object>
+            <object>objects\objMudEdgeBottom</object>
+            <object>objects\objMudEdgeLeft</object>
+          </objects>
+        </objects>
       </objects>
     </objects>
     <objects name="Flags">

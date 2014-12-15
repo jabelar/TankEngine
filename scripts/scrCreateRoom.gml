@@ -193,6 +193,64 @@ repeat 6
         }
     }
 }
+show_debug_message("Filling in mud corners")
+// fill in mud inside corners
+with objMud
+{
+    if (instance_place(x+TILE_SIZE, y+TILE_SIZE, objMud) > 0) and (instance_place(x+TILE_SIZE, y, objMud) == noone) then
+    {
+        instance_create(x+TILE_SIZE, y, objMudTR) 
+    }
+    if (instance_place(x-TILE_SIZE, y+TILE_SIZE, objMud) > 0) and (instance_place(x-TILE_SIZE, y, objMud) == noone) then
+    {
+        instance_create(x-TILE_SIZE, y, objMudTL) 
+    }
+    if (instance_place(x+TILE_SIZE, y-TILE_SIZE, objMud) > 0) and (instance_place(x+TILE_SIZE, y, objMud) == noone) then
+    {
+        instance_create(x+TILE_SIZE, y, objMudBR) 
+    }
+    if (instance_place(x-TILE_SIZE, y-TILE_SIZE, objMud) > 0) and (instance_place(x-TILE_SIZE, y, objMud) == noone) then
+    {
+        instance_create(x-TILE_SIZE, y, objMudBL) ;
+    }
+}
+show_debug_message("Rounding out mud outside corners")
+// round off mud outside corners
+with objMud
+{
+   if (instance_place(x+TILE_SIZE, y, objMud) == noone) and (instance_place(x+TILE_SIZE, y, objParentMudInsideCorner) == noone) and (instance_place(x, y-TILE_SIZE, objMud) == noone) and (instance_place(x, y-TILE_SIZE, objParentMudInsideCorner) == noone)  
+   {
+        instance_change(objMudCornerTR, true) 
+    }
+}
+// turn outside corners into points where appropriate
+with objMudCornerTR
+{
+    if instance_place(x-TILE_SIZE, y, objMud) == noone and instance_place(x-TILE_SIZE, y, objParentMudInsideCorner) == noone and instance_place(x-TILE_SIZE, y, objParentMudOutsideCorner) == noone 
+    {
+        instance_change(objMudPointUp, true) 
+    }
+}
+// make edges bit rougher
+with objMud
+{
+    if instance_place(x+TILE_SIZE, y, objParentHindrance) == noone then
+    {
+        instance_change(objMudEdgeRight, true) ;
+    }
+    if instance_place(x-TILE_SIZE, y, objParentHindrance) == noone and instance_place(x-TILE_SIZE, y, objParentWaterDeepEdge) == noone then
+    {
+        instance_change(objMudEdgeLeft, true) ;
+    }
+    if instance_place(x, y+TILE_SIZE, objParentHindrance) == noone and instance_place(x, y+TILE_SIZE, objParentWaterDeepEdge) == noone then
+    {
+        instance_change(objMudEdgeBottom, true) ;
+    }
+    if instance_place(x, y-TILE_SIZE, objParentHindrance) == noone and instance_place(x, y-TILE_SIZE, objParentWaterDeepEdge) == noone then
+    {
+        instance_change(objMudEdgeTop, true) ;
+    }
+}
 
 show_debug_message("Populating walls")
 // populate walls
