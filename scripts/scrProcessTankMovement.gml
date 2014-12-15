@@ -35,16 +35,6 @@ else
             {
                 case ENEMY:
                 {
-                    dir_to_enemy = point_direction(x, y, enemy_id.x, enemy_id.y)
-                    if abs(angle_difference(dir_to_enemy, direction+angle_main_gun)) < TANK_TURN_SPEED_BASE*TANK_TURRET_SPEED_MULTIPLIER
-                    {
-                        // clamp angle to direction
-                        angle_main_gun = dir_to_enemy-direction
-                    }
-                    else // need to turn
-                    {
-                        angle_main_gun += sign(angle_difference(dir_to_enemy, direction+angle_main_gun))*TANK_TURN_SPEED_BASE*TANK_TURRET_SPEED_MULTIPLIER
-                    }
                     break ;
                 }
                 case HOME:
@@ -125,6 +115,16 @@ else
         }
     }
     
+    // process turret movement
+    if key_turret_left
+    {
+        angle_main_gun += TANK_TURN_SPEED_BASE*TANK_TURRET_SPEED_MULTIPLIER
+    }
+    else if key_turret_right
+    {
+        angle_main_gun -= TANK_TURN_SPEED_BASE*TANK_TURRET_SPEED_MULTIPLIER
+    }
+
     // keep in room (assumes origin is centered)
     if x < 0 then x = 0 ;
     if x > room_width then x = room_width ;

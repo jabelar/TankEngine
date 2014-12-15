@@ -31,6 +31,29 @@ if enemy_id != -1
     {
         case ENEMY:
         {
+            // turn turret
+            dir_to_enemy = point_direction(x, y, enemy_id.x, enemy_id.y)
+            if abs(angle_difference(dir_to_enemy, direction+angle_main_gun)) < TANK_TURN_SPEED_BASE*TANK_TURRET_SPEED_MULTIPLIER
+            {
+                // clamp angle to direction
+                // angle_main_gun = dir_to_enemy-direction
+                key_turret_right = false
+                key_turret_left = false
+            }
+            else // need to turn
+            {
+                if angle_difference(dir_to_enemy, direction+angle_main_gun) > 0
+                {
+                    key_turret_right = false
+                    key_turret_left = true
+                }
+                else
+                {
+                    key_turret_right = true
+                    key_turret_left = false
+                }                
+                // angle_main_gun += sign(angle_difference(dir_to_enemy, direction+angle_main_gun))*TANK_TURN_SPEED_BASE*TANK_TURRET_SPEED_MULTIPLIER
+            }
             // process shooting
             if distance_to_object(enemy_id) < 16*room_speed // close enough to start shooting
             {

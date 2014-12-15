@@ -124,6 +124,7 @@
     <script>scripts\scrHindranceParentCreateEvent.gml</script>
     <scripts name="Players">
       <script>scripts\scrProcessInput.gml</script>
+      <script>scripts\scrInputClear.gml</script>
       <script>scripts\scrProcessInputTank.gml</script>
       <script>scripts\scrProcessInputTurret.gml</script>
       <script>scripts\scrProcessInputTriggers.gml</script>
@@ -135,13 +136,12 @@
       <script>scripts\scrProcessTankWeapons.gml</script>
       <script>scripts\scrProcessTankMovement.gml</script>
       <script>scripts\scrProcessPlayerStep.gml</script>
-      <script>scripts\scrJoystickCheckButtonPressed.gml</script>
+      <script>scripts\scrPathEndEvent.gml</script>
       <scripts name="Artificial Intelligence">
         <script>scripts\scrPlayerAlarm1Event.gml</script>
         <script>scripts\scrProcessEnvironment.gml</script>
         <script>scripts\scrProcessAI.gml</script>
       </scripts>
-      <script>scripts\scrPathEndEvent.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

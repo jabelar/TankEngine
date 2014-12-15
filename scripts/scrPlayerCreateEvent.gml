@@ -13,6 +13,8 @@ input_fire3 = vk_space
 input_change_spawn = ord('S')
 input_flag = ord('F')
 
+scrInputClear()
+
 gamepad_set_axis_deadzone(1, 0.2);
 
 my_speed = TANK_SPEED_BASE

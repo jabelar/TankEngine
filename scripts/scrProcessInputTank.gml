@@ -51,7 +51,7 @@ else if input_style_tank = TANK_JOYSTICK_SING
     if gamepad_axis_value(1, gp_axislh) > 0
     {
         key_right = true ;
-    }        // if joystick_direction(current_player) = vk_numpad2
+    }        
     if gamepad_axis_value(1, gp_axislv) > 0
     {
         key_backward = true ;
@@ -83,4 +83,3 @@ else if input_style_tank = TANK_JOYSTICK_DIR
         }
     }
 }
-
