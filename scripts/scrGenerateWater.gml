@@ -128,7 +128,22 @@ with objWaterDeep
    {
         instance_create(x, y, objWaterShallow) ;
         instance_change(objWaterDeepCornerTR, true) ;
-    }
+   }
+   if (instance_place(x-TILE_SIZE, y, objWaterDeep) == noone) and (instance_place(x-TILE_SIZE, y, objParentWaterDeepInsideCorner) == noone) and (instance_place(x, y-TILE_SIZE, objWaterDeep) == noone) and (instance_place(x, y-TILE_SIZE, objParentWaterDeepInsideCorner) == noone)  then
+   {
+        instance_create(x, y, objWaterShallow) ;
+        instance_change(objWaterDeepCornerTL, true) ;
+   }
+   if (instance_place(x+TILE_SIZE, y, objWaterDeep) == noone) and (instance_place(x+TILE_SIZE, y, objParentWaterDeepInsideCorner) == noone) and (instance_place(x, y+TILE_SIZE, objWaterDeep) == noone) and (instance_place(x, y+TILE_SIZE, objParentWaterDeepInsideCorner) == noone)  then
+   {
+        instance_create(x, y, objWaterShallow) ;
+        instance_change(objWaterDeepCornerBR, true) ;
+   }
+   if (instance_place(x-TILE_SIZE, y, objWaterDeep) == noone) and (instance_place(x-TILE_SIZE, y, objParentWaterDeepInsideCorner) == noone) and (instance_place(x, y+TILE_SIZE, objWaterDeep) == noone) and (instance_place(x, y+TILE_SIZE, objParentWaterDeepInsideCorner) == noone)  then
+   {
+        instance_create(x, y, objWaterShallow) ;
+        instance_change(objWaterDeepCornerBL, true) ;
+   }
 }
 // turn outside corners into points where appropriate
 with objWaterDeepCornerTR

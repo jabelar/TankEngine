@@ -38,6 +38,9 @@
         </sprites>
         <sprites name="OutsideCorners">
           <sprite>sprites\sprWaterDeepCornerTR</sprite>
+          <sprite>sprites\sprWaterDeepCornerTL</sprite>
+          <sprite>sprites\sprWaterDeepCornerBL</sprite>
+          <sprite>sprites\sprWaterDeepCornerBR</sprite>
         </sprites>
         <sprites name="Points">
           <sprite>sprites\sprWaterDeepPointUp</sprite>
@@ -70,7 +73,6 @@
       <sprite>sprites\sprWaterShallow</sprite>
       <sprite>sprites\sprRoadPaved</sprite>
       <sprite>sprites\sprRoadDirt</sprite>
-      <sprite>sprites\sprSand</sprite>
       <sprites name="Mud">
         <sprite>sprites\sprMud</sprite>
         <sprites name="Inside Corners">
@@ -95,6 +97,17 @@
           <sprite>sprites\sprMudEdgeTop</sprite>
           <sprite>sprites\sprMudEdgeBottom</sprite>
         </sprites>
+      </sprites>
+      <sprites name="Sand">
+        <sprite>sprites\sprSand</sprite>
+        <sprite>sprites\sprSandCornerTR</sprite>
+        <sprite>sprites\sprSandCornerTL</sprite>
+        <sprite>sprites\sprSandCornerBL</sprite>
+        <sprite>sprites\sprSandCornerBR</sprite>
+        <sprite>sprites\sprSandTR</sprite>
+        <sprite>sprites\sprSandTL</sprite>
+        <sprite>sprites\sprSandBL</sprite>
+        <sprite>sprites\sprSandBR</sprite>
       </sprites>
     </sprites>
     <sprites name="Flags">
@@ -142,6 +155,7 @@
         <script>scripts\scrFindFreeSpace.gml</script>
         <script>scripts\scrGenerateWater.gml</script>
         <script>scripts\scrGenerateMud.gml</script>
+        <script>scripts\scrCleanUpSand.gml</script>
       </scripts>
       <scripts name="Display Management">
         <script>scripts\scrSetApplicationSurfaceSize.gml</script>
@@ -215,6 +229,9 @@
         </objects>
         <objects name="OutsideCorners">
           <object>objects\objWaterDeepCornerTR</object>
+          <object>objects\objWaterDeepCornerTL</object>
+          <object>objects\objWaterDeepCornerBL</object>
+          <object>objects\objWaterDeepCornerBR</object>
         </objects>
         <objects name="Points">
           <object>objects\objWaterDeepPointUp</object>
@@ -238,7 +255,6 @@
     <object>objects\objRespawnMarker</object>
     <objects name="Terrain">
       <object>objects\objTracks</object>
-      <object>objects\objSand</object>
       <objects name="Hindrances">
         <object>objects\objWaterShallow</object>
         <objects name="Mud">
@@ -266,6 +282,17 @@
             <object>objects\objMudEdgeLeft</object>
           </objects>
         </objects>
+      </objects>
+      <objects name="Sand">
+        <object>objects\objSand</object>
+        <object>objects\objSandTR</object>
+        <object>objects\objSandTL</object>
+        <object>objects\objSandBL</object>
+        <object>objects\objSandBR</object>
+        <object>objects\objSandCornerTR</object>
+        <object>objects\objSandCornerTL</object>
+        <object>objects\objSandCornerBL</object>
+        <object>objects\objSandCornerBR</object>
       </objects>
     </objects>
     <objects name="Flags">

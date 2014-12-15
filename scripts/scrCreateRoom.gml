@@ -18,6 +18,8 @@ instance_create(home_base_id_2.x+home_base_id_2.sprite_width/2, home_base_id_2.y
 
 scrGenerateWater(6)
 
+scrCleanUpSand()
+
 scrGenerateMud(6)
 
 show_debug_message("Populating walls")
