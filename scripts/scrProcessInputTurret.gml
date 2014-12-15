@@ -2,14 +2,12 @@
 if input_style_turret = TURRET_KEYBOARD
 {
     // do nothing, turret fixed
-    // angle_main_gun = 0
     key_turret_right = false
     key_turret_left = false
 }
 else if input_style_turret = TURRET_JOYSTICK_PAIR
 {
     // do nothing, turret fixed
-    // angle_main_gun = 0
     key_turret_right = false
     key_turret_left = false
 }
@@ -20,13 +18,11 @@ else if input_style_turret = TURRET_JOYSTICK_SING
     {
         key_turret_right = false
         key_turret_left = true
-        // angle_main_gun += TANK_TURN_SPEED_BASE*TANK_TURRET_SPEED_MULTIPLIER
     }
     if gamepad_axis_value(1, gp_axisrh) > 0
     {
         key_turret_right = true
         key_turret_left = false
-        // angle_main_gun -= TANK_TURN_SPEED_BASE*TANK_TURRET_SPEED_MULTIPLIER
     }
 }
 else if input_style_turret = TURRET_JOYSTICK_DIR
@@ -41,13 +37,11 @@ else if input_style_turret = TURRET_JOYSTICK_DIR
         {
             key_turret_right = true
             key_turret_left = false
-            // angle_main_gun -= TANK_TURN_SPEED_BASE*TANK_TURRET_SPEED_MULTIPLIER
         }
         if ang_diff > TANK_TURN_SPEED_BASE*TANK_TURRET_SPEED_MULTIPLIER
         {
             key_turret_right = false
             key_turret_left = true
-            // angle_main_gun += TANK_TURN_SPEED_BASE*TANK_TURRET_SPEED_MULTIPLIER
         }
     }
 }    
