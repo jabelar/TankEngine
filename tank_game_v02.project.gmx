@@ -81,6 +81,9 @@
         </sprites>
         <sprites name="Outside Corners">
           <sprite>sprites\sprMudCornerTR</sprite>
+          <sprite>sprites\sprMudCornerTL</sprite>
+          <sprite>sprites\sprMudCornerBR</sprite>
+          <sprite>sprites\sprMudCornerBL</sprite>
         </sprites>
         <sprites name="Points">
           <sprite>sprites\sprMudPointUp</sprite>
@@ -137,6 +140,8 @@
       <scripts name="Map Creation">
         <script>scripts\scrCreateRoom.gml</script>
         <script>scripts\scrFindFreeSpace.gml</script>
+        <script>scripts\scrGenerateWater.gml</script>
+        <script>scripts\scrGenerateMud.gml</script>
       </scripts>
       <scripts name="Display Management">
         <script>scripts\scrSetApplicationSurfaceSize.gml</script>
@@ -246,6 +251,9 @@
           </objects>
           <objects name="Outside Corners">
             <object>objects\objMudCornerTR</object>
+            <object>objects\objMudCornerTL</object>
+            <object>objects\objMudCornerBR</object>
+            <object>objects\objMudCornerBL</object>
           </objects>
           <objects name="Points">
             <object>objects\objMudPointRight</object>
