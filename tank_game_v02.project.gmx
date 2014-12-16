@@ -70,7 +70,6 @@
     <sprites name="Terrain">
       <sprite>sprites\sprTracks</sprite>
       <sprite>sprites\sprTracksNarrow</sprite>
-      <sprite>sprites\sprWaterShallow</sprite>
       <sprite>sprites\sprRoadPaved</sprite>
       <sprite>sprites\sprRoadDirt</sprite>
       <sprites name="Mud">
@@ -108,6 +107,17 @@
         <sprite>sprites\sprSandTL</sprite>
         <sprite>sprites\sprSandBL</sprite>
         <sprite>sprites\sprSandBR</sprite>
+      </sprites>
+      <sprites name="Shallow Water">
+        <sprite>sprites\sprWaterShallow</sprite>
+        <sprite>sprites\sprWaterShallowCornerTR</sprite>
+        <sprite>sprites\sprWaterShallowCornerTL</sprite>
+        <sprite>sprites\sprWaterShallowCornerBL</sprite>
+        <sprite>sprites\sprWaterShallowCornerBR</sprite>
+        <sprite>sprites\sprWaterShallowTR</sprite>
+        <sprite>sprites\sprWaterShallowTL</sprite>
+        <sprite>sprites\sprWaterShallowBL</sprite>
+        <sprite>sprites\sprWaterShallowBR</sprite>
       </sprites>
     </sprites>
     <sprites name="Flags">
@@ -156,6 +166,7 @@
         <script>scripts\scrGenerateWater.gml</script>
         <script>scripts\scrGenerateMud.gml</script>
         <script>scripts\scrCleanUpSand.gml</script>
+        <script>scripts\scrCleanUpWaterShallow.gml</script>
       </scripts>
       <scripts name="Display Management">
         <script>scripts\scrSetApplicationSurfaceSize.gml</script>
@@ -256,7 +267,6 @@
     <objects name="Terrain">
       <object>objects\objTracks</object>
       <objects name="Hindrances">
-        <object>objects\objWaterShallow</object>
         <objects name="Mud">
           <object>objects\objMud</object>
           <objects name="Inside Corners">
@@ -281,6 +291,17 @@
             <object>objects\objMudEdgeBottom</object>
             <object>objects\objMudEdgeLeft</object>
           </objects>
+        </objects>
+        <objects name="Water Shallow">
+          <object>objects\objWaterShallow</object>
+          <object>objects\objWaterShallowTR</object>
+          <object>objects\objWaterShallowTL</object>
+          <object>objects\objWaterShallowBL</object>
+          <object>objects\objWaterShallowBR</object>
+          <object>objects\objWaterShallowCornerTR</object>
+          <object>objects\objWaterShallowCornerTL</object>
+          <object>objects\objWaterShallowCornerBL</object>
+          <object>objects\objWaterShallowCornerBR</object>
         </objects>
       </objects>
       <objects name="Sand">

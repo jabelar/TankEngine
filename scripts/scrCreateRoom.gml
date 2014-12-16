@@ -18,6 +18,8 @@ instance_create(home_base_id_2.x+home_base_id_2.sprite_width/2, home_base_id_2.y
 
 scrGenerateWater(6)
 
+scrCleanUpWaterShallow()
+
 scrCleanUpSand()
 
 scrGenerateMud(6)
