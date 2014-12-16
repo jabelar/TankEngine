@@ -1,4 +1,4 @@
-// show_debug_message("scrProcessPlayerStep starting")
+show_debug_message("scrProcessPlayerStep starting")
 
 scrProcessInput()
 
@@ -59,4 +59,4 @@ switch state
     }   
 }
 
-// show_debug_message("scrProcessPlayerStep finished")
+show_debug_message("scrProcessPlayerStep finished")

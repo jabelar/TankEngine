@@ -5,7 +5,7 @@
 // update motion planning path
 if (enemy_id != noone)
 {
-    // mp_potential_path_object(path, enemy_id.x, enemy_id.y, my_speed, 4, objParentObstacle)
+    mp_potential_path_object(path, enemy_id.x, enemy_id.y, my_speed, 4, objParentObstacle)
     // path_start(path, my_speed, 0, false);
 }
 =======
