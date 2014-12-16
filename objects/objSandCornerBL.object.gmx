@@ -3,7 +3,7 @@
   <spriteName>sprSandCornerBL</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>150</depth>
+  <depth>152</depth>
   <persistent>0</persistent>
   <parentName>objSand</parentName>
   <maskName>&lt;undefined&gt;</maskName>

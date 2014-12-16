@@ -3,9 +3,9 @@
   <spriteName>sprWaterShallowTR</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>150</depth>
+  <depth>152</depth>
   <persistent>0</persistent>
-  <parentName>objWaterShallow</parentName>
+  <parentName>objParentWaterShallowInsideCorner</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events/>
   <PhysicsObject>0</PhysicsObject>

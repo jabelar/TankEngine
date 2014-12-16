@@ -216,6 +216,7 @@
       <objects name="Parents Hindrances">
         <object>objects\objParentHindrance</object>
         <object>objects\objParentMudInsideCorner</object>
+        <object>objects\objParentWaterShallowInsideCorner</object>
         <object>objects\objParentMudOutsideCorner</object>
         <object>objects\objParentMudPoint</object>
         <object>objects\objParentMudEdge</object>
