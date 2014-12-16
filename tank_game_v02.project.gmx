@@ -38,6 +38,9 @@
         </sprites>
         <sprites name="OutsideCorners">
           <sprite>sprites\sprWaterDeepCornerTR</sprite>
+          <sprite>sprites\sprWaterDeepCornerTL</sprite>
+          <sprite>sprites\sprWaterDeepCornerBL</sprite>
+          <sprite>sprites\sprWaterDeepCornerBR</sprite>
         </sprites>
         <sprites name="Points">
           <sprite>sprites\sprWaterDeepPointUp</sprite>
@@ -67,11 +70,55 @@
     <sprites name="Terrain">
       <sprite>sprites\sprTracks</sprite>
       <sprite>sprites\sprTracksNarrow</sprite>
-      <sprite>sprites\sprMud</sprite>
-      <sprite>sprites\sprWaterShallow</sprite>
       <sprite>sprites\sprRoadPaved</sprite>
       <sprite>sprites\sprRoadDirt</sprite>
-      <sprite>sprites\sprSand</sprite>
+      <sprites name="Mud">
+        <sprite>sprites\sprMud</sprite>
+        <sprites name="Inside Corners">
+          <sprite>sprites\sprMudBR</sprite>
+          <sprite>sprites\sprMudTL</sprite>
+          <sprite>sprites\sprMudTR</sprite>
+          <sprite>sprites\sprMudBL</sprite>
+        </sprites>
+        <sprites name="Outside Corners">
+          <sprite>sprites\sprMudCornerTR</sprite>
+          <sprite>sprites\sprMudCornerTL</sprite>
+          <sprite>sprites\sprMudCornerBR</sprite>
+          <sprite>sprites\sprMudCornerBL</sprite>
+        </sprites>
+        <sprites name="Points">
+          <sprite>sprites\sprMudPointUp</sprite>
+          <sprite>sprites\sprMudPointRight</sprite>
+        </sprites>
+        <sprites name="Edges">
+          <sprite>sprites\sprMudEdgeRight</sprite>
+          <sprite>sprites\sprMudEdgeLeft</sprite>
+          <sprite>sprites\sprMudEdgeTop</sprite>
+          <sprite>sprites\sprMudEdgeBottom</sprite>
+        </sprites>
+      </sprites>
+      <sprites name="Sand">
+        <sprite>sprites\sprSand</sprite>
+        <sprite>sprites\sprSandCornerTR</sprite>
+        <sprite>sprites\sprSandCornerTL</sprite>
+        <sprite>sprites\sprSandCornerBL</sprite>
+        <sprite>sprites\sprSandCornerBR</sprite>
+        <sprite>sprites\sprSandTR</sprite>
+        <sprite>sprites\sprSandTL</sprite>
+        <sprite>sprites\sprSandBL</sprite>
+        <sprite>sprites\sprSandBR</sprite>
+      </sprites>
+      <sprites name="Shallow Water">
+        <sprite>sprites\sprWaterShallow</sprite>
+        <sprite>sprites\sprWaterShallowCornerTR</sprite>
+        <sprite>sprites\sprWaterShallowCornerTL</sprite>
+        <sprite>sprites\sprWaterShallowCornerBL</sprite>
+        <sprite>sprites\sprWaterShallowCornerBR</sprite>
+        <sprite>sprites\sprWaterShallowTR</sprite>
+        <sprite>sprites\sprWaterShallowTL</sprite>
+        <sprite>sprites\sprWaterShallowBL</sprite>
+        <sprite>sprites\sprWaterShallowBR</sprite>
+      </sprites>
     </sprites>
     <sprites name="Flags">
       <sprite>sprites\sprFlagRed</sprite>
@@ -100,7 +147,8 @@
   </sprites>
   <backgrounds name="background">
     <background>background\bgGrass</background>
-    <background>background\bgTitle</background>
+    <background>background\bgTitle720p</background>
+    <background>background\bgTitle810p</background>
     <background>background\bgGrassHD1</background>
   </backgrounds>
   <paths name="paths"/>
@@ -112,14 +160,22 @@
       <script>scripts\scrControllerDrawEvent.gml</script>
       <script>scripts\scrControllerDrawGui.gml</script>
       <script>scripts\scrControllerRoomStartEvent.gml</script>
-      <scripts name="map creation">
+      <scripts name="Map Creation">
         <script>scripts\scrCreateRoom.gml</script>
         <script>scripts\scrFindFreeSpace.gml</script>
+        <script>scripts\scrGenerateWater.gml</script>
+        <script>scripts\scrGenerateMud.gml</script>
+        <script>scripts\scrCleanUpSand.gml</script>
+        <script>scripts\scrCleanUpWaterShallow.gml</script>
+      </scripts>
+      <scripts name="Display Management">
+        <script>scripts\scrSetApplicationSurfaceSize.gml</script>
       </scripts>
     </scripts>
     <script>scripts\scrHindranceParentCreateEvent.gml</script>
     <scripts name="Players">
       <script>scripts\scrProcessInput.gml</script>
+      <script>scripts\scrInputClear.gml</script>
       <script>scripts\scrProcessInputTank.gml</script>
       <script>scripts\scrProcessInputTurret.gml</script>
       <script>scripts\scrProcessInputTriggers.gml</script>
@@ -131,7 +187,7 @@
       <script>scripts\scrProcessTankWeapons.gml</script>
       <script>scripts\scrProcessTankMovement.gml</script>
       <script>scripts\scrProcessPlayerStep.gml</script>
-      <script>scripts\scrJoystickCheckButtonPressed.gml</script>
+      <script>scripts\scrPathEndEvent.gml</script>
       <scripts name="Artificial Intelligence">
         <script>scripts\scrPlayerAlarm1Event.gml</script>
         <script>scripts\scrProcessEnvironment.gml</script>
@@ -148,7 +204,6 @@
       <object>objects\objParentFlag</object>
       <object>objects\objParentHazard</object>
       <object>objects\objParentBase</object>
-      <object>objects\objParentHindrance</object>
       <objects name="ParentsObstacles">
         <object>objects\objParentObstacle</object>
         <objects name="ParentsWaterDeep">
@@ -157,6 +212,14 @@
           <object>objects\objParentWaterDeepPoint</object>
           <object>objects\objParentWaterDeepEdge</object>
         </objects>
+      </objects>
+      <objects name="Parents Hindrances">
+        <object>objects\objParentHindrance</object>
+        <object>objects\objParentMudInsideCorner</object>
+        <object>objects\objParentWaterShallowInsideCorner</object>
+        <object>objects\objParentMudOutsideCorner</object>
+        <object>objects\objParentMudPoint</object>
+        <object>objects\objParentMudEdge</object>
       </objects>
     </objects>
     <objects name="Controllers">
@@ -178,6 +241,9 @@
         </objects>
         <objects name="OutsideCorners">
           <object>objects\objWaterDeepCornerTR</object>
+          <object>objects\objWaterDeepCornerTL</object>
+          <object>objects\objWaterDeepCornerBL</object>
+          <object>objects\objWaterDeepCornerBR</object>
         </objects>
         <objects name="Points">
           <object>objects\objWaterDeepPointUp</object>
@@ -201,10 +267,54 @@
     <object>objects\objRespawnMarker</object>
     <objects name="Terrain">
       <object>objects\objTracks</object>
-      <object>objects\objSand</object>
       <objects name="Hindrances">
-        <object>objects\objMud</object>
-        <object>objects\objWaterShallow</object>
+        <objects name="Mud">
+          <object>objects\objMud</object>
+          <objects name="Inside Corners">
+            <object>objects\objMudTR</object>
+            <object>objects\objMudBL</object>
+            <object>objects\objMudBR</object>
+            <object>objects\objMudTL</object>
+          </objects>
+          <objects name="Outside Corners">
+            <object>objects\objMudCornerTR</object>
+            <object>objects\objMudCornerTL</object>
+            <object>objects\objMudCornerBR</object>
+            <object>objects\objMudCornerBL</object>
+          </objects>
+          <objects name="Points">
+            <object>objects\objMudPointRight</object>
+            <object>objects\objMudPointUp</object>
+          </objects>
+          <objects name="Edges">
+            <object>objects\objMudEdgeRight</object>
+            <object>objects\objMudEdgeTop</object>
+            <object>objects\objMudEdgeBottom</object>
+            <object>objects\objMudEdgeLeft</object>
+          </objects>
+        </objects>
+        <objects name="Water Shallow">
+          <object>objects\objWaterShallow</object>
+          <object>objects\objWaterShallowTR</object>
+          <object>objects\objWaterShallowTL</object>
+          <object>objects\objWaterShallowBL</object>
+          <object>objects\objWaterShallowBR</object>
+          <object>objects\objWaterShallowCornerTR</object>
+          <object>objects\objWaterShallowCornerTL</object>
+          <object>objects\objWaterShallowCornerBL</object>
+          <object>objects\objWaterShallowCornerBR</object>
+        </objects>
+      </objects>
+      <objects name="Sand">
+        <object>objects\objSand</object>
+        <object>objects\objSandTR</object>
+        <object>objects\objSandTL</object>
+        <object>objects\objSandBL</object>
+        <object>objects\objSandBR</object>
+        <object>objects\objSandCornerTR</object>
+        <object>objects\objSandCornerTL</object>
+        <object>objects\objSandCornerBL</object>
+        <object>objects\objSandCornerBR</object>
       </objects>
     </objects>
     <objects name="Flags">

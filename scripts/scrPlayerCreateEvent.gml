@@ -13,10 +13,14 @@ input_fire3 = vk_space
 input_change_spawn = ord('S')
 input_flag = ord('F')
 
+scrInputClear()
+
 gamepad_set_axis_deadzone(1, 0.2);
 
 my_speed = TANK_SPEED_BASE
 my_turn_speed = TANK_TURN_SPEED_BASE
+current_speed = my_speed
+current_turn_speed = my_turn_speed
 global.ammo_main_gun[current_player] = 10
 my_score = 0
 my_health = HEALTH_BASE
@@ -41,7 +45,12 @@ if player_type = COMPUTER
     alarm[1] = room_speed
 
     // set pathfinding options
-    mp_potential_settings(45, 10, 5, false)
+    mp_potential_settings(30, 3, 10, false)
+    grid = mp_grid_create(0, 0, room_width/TILE_SIZE, room_height/TILE_SIZE, TILE_SIZE, TILE_SIZE)
     path = path_add()
+    mp_grid_add_instances(grid, objParentObstacle, false) // Need to do this here for when player regenerates need to update
+    path_found = false
+    xpathstart = x
+    ypathstart = y
 }
 show_debug_message("scrPlayerCreateEvent finished")

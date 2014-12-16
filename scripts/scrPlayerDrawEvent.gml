@@ -32,12 +32,14 @@ if view_current = current_player // only draw in players view
         }
     }
     
-    // debug
-    if current_player == PLAYER2 then draw_path(path, x, y, false)
+    if ((current_player == PLAYER2) && path_found) 
+    {
+        draw_path(path, xpathstart, ypathstart, false)
+        // debug messages
+        draw_text(x, y-100, ai_target)
+        // draw_text(x, y-50, alarm[1])
+        // draw_text(x, y-20, have_enemy_flag)
+    }   
 } 
-// debug messages
-// draw_text(x, y-100, ai_target)
-// draw_text(x, y-50, alarm[1])
-// draw_text(x, y-20, have_enemy_flag)
 
 // show_debug_message("scrPlayerDrawEvent finished")
