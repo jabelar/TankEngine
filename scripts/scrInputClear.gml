@@ -10,4 +10,3 @@ key_flag = false
 key_weapon1_pressed = false
 key_weapon2_pressed = false 
 key_weapon3_pressed = false
-
